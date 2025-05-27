@@ -3,6 +3,7 @@ import Home from "./routes/home";
 const routes = {
   "/": Home,
 };
+
 const navigateTo = (path) => {
   history.pushState(null, null, path);
   router();
@@ -13,6 +14,7 @@ const router = () => {
   const route = routes[path] || Home; // Default to Home if no route matches
   const content = route();
 
+  // Render the content in the app element
   document.getElementById("app").innerHTML = content;
 };
 
