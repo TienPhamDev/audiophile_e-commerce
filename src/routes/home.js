@@ -1,7 +1,17 @@
 import "../style.css";
 const Home = () => {
   const content = `
-    <header><h1>Welcome to project</h1></header>
+    <div class="container">
+      <header class="header">
+        <h1>Welcome to My Website</h1>
+      </header>
+      <main class="main">
+        
+      </main>
+      <footer class="footer">
+        <p>© 2023 Your Company Name</p>
+      </footer>
+    </div>
   `;
   return content;
 };
