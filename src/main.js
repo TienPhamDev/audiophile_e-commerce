@@ -1,9 +1,34 @@
-import "./style.css";
+import Home from "./routes/home";
 
-document.querySelector("#app").innerHTML = `
-  <div>
-    
-  </div>
-`;
+const routes = {
+  "/": Home,
+};
+const navigateTo = (path) => {
+  history.pushState(null, null, path);
+  router();
+};
 
-setupCounter(document.querySelector("#counter"));
+const router = () => {
+  const path = window.location.pathname;
+  const route = routes[path] || Home; // Default to Home if no route matches
+  const content = route();
+
+  document.getElementById("app").innerHTML = content;
+};
+
+// Handle browser navigation (back/forward buttons)
+window.addEventListener("popstate", router);
+
+// Handle initial page load and link navigation
+window.addEventListener("DOMContentLoaded", () => {
+  document.body.addEventListener("click", (e) => {
+    if (e.target.matches("[data-link]")) {
+      e.preventDefault();
+      const path = e.target.href;
+      navigateTo(path);
+    }
+  });
+
+  // Call the router to render the initial page
+  router();
+});
