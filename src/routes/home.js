@@ -2,6 +2,10 @@ import "../style.css";
 import imgThumbnailHeadphone from "../assets/shared/desktop/image-category-thumbnail-headphones.png";
 import imgThumbnailSpeaker from "../assets/shared/desktop/image-category-thumbnail-speakers.png";
 import imgThumbnailEarphone from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
+import imgSpeakerZX9 from "../assets/home/desktop/image-speaker-zx9.png";
+import imgSpeakerZX7 from "../assets/home/desktop/image-speaker-zx7.jpg";
+import imgEarphoneYX1 from "../assets/home/desktop/image-earphones-yx1.jpg";
+import imgAbout from "../assets/shared/desktop/image-best-gear.jpg";
 const Home = () => {
   const content = `
   <div class="container">
@@ -44,18 +48,18 @@ const Home = () => {
       </section>
       <section class="products">
         <div class="product">
-          <img src="../assets/home/desktop/image-speaker-zx9.png" alt="zx9 speaker">
+          <img src=${imgSpeakerZX9} alt="zx9 speaker">
           <h3>zX9 SPEAKER</h3>
           <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
           <a href="/headphones/xx99-mark-one" class="btn-secondary">See Product</a>
         </div>
         <div class="product">
-          <img src="../assets/home/desktop/image-speaker-zx7.jpg" alt="zx7 speaker">
+          <img src=${imgSpeakerZX7} alt="zx7 speaker">
           <h3>ZX7 SPEAKER</h3>
           <a href="/headphones/xx59" class="btn-secondary">See Product</a>
         </div>
         <div class="product">
-          <img src="../assets/home/desktop/image-earphones-yx1.jpg" alt="yx1 earphones">
+          <img src=${imgEarphoneYX1} alt="yx1 earphones">
           <h3>YX1 EARPHONES</h3>
           <a href="/speakers/zx9-speaker" class="btn-secondary">See Product</a>
         </div>
@@ -65,7 +69,7 @@ const Home = () => {
           <h2>Bringing you the <span>best</span> audio gear</h2>
           <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
         </div>
-        <img src="../assets/shared/desktop/image-best-gear.jpg" alt="About Audiophile">
+        <img src=${imgAbout} alt="About Audiophile">
       </section>
     </main>
     <footer>
