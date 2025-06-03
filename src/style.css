@@ -241,3 +241,32 @@ input.error::placeholder {
 .quantity button:hover {
   color: var(--color-primary);
 }
+/* Container -------------------------------------------*/
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+/* Style for Home.js -----------------------------------*/
+
+/* Home Page */
+header {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 0 2rem;
+  max-width: 120rem;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2rem 0;
+  border-bottom: 1px solid #979797;
+  gap: 2rem;
+}
+header nav ul {
+  display: flex;
+  gap: 2rem;
+}
