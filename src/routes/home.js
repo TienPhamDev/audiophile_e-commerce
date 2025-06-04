@@ -6,6 +6,7 @@ import imgSpeakerZX9 from "../assets/home/desktop/image-speaker-zx9.png";
 import imgSpeakerZX7 from "../assets/home/desktop/image-speaker-zx7.jpg";
 import imgEarphoneYX1 from "../assets/home/desktop/image-earphones-yx1.jpg";
 import imgAbout from "../assets/shared/desktop/image-best-gear.jpg";
+import imgHero from "../assets/home/desktop/image-hero.jpg";
 const Home = () => {
   const content = `
   <div class="container">
@@ -25,7 +26,7 @@ const Home = () => {
         <h2>XX99 Mark II<br>Headphones</h2>
         <p>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
         <a href="/headphones/xx99-mark-two" class="btn-primary">See Product</a>
-        
+        <img>
       </section>
     </header>
     <main>

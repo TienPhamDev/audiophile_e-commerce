@@ -252,10 +252,10 @@ input.error::placeholder {
 
 /* Home Page */
 header {
+  justify-self: stretch;
   background-color: var(--color-dark);
   color: var(--color-white);
   padding: 0 2rem;
-  max-width: 120rem;
 }
 header nav {
   display: flex;
@@ -269,4 +269,8 @@ header nav {
 header nav ul {
   display: flex;
   gap: 2rem;
+}
+.hero {
+  background: url("../assets/home/desktop/image-hero.jpg") no-repeat center
+    center;
 }
