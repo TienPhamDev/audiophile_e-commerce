@@ -288,6 +288,5 @@ header nav ul {
 }
 .hero-text p {
   margin-bottom: 2rem;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
+  width: 70%;
 }
