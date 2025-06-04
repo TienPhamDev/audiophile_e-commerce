@@ -255,7 +255,13 @@ header {
   justify-self: stretch;
   background-color: var(--color-dark);
   color: var(--color-white);
-  padding: 0 2rem;
+  padding: 0 2rem 4rem 2rem;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./assets/home/desktop/image-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 header nav {
   display: flex;
@@ -271,6 +277,17 @@ header nav ul {
   gap: 2rem;
 }
 .hero {
-  background: url("../assets/home/desktop/image-hero.jpg") no-repeat center
-    center;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 40rem;
+  width: 50%;
+}
+.hero-text h2 {
+  margin-bottom: 2rem;
+}
+.hero-text p {
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
 }
