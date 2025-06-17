@@ -255,13 +255,7 @@ header {
   justify-self: stretch;
   background-color: var(--color-dark);
   color: var(--color-white);
-  padding: 0 2rem 4rem 2rem;
-
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("./assets/home/desktop/image-hero.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  padding: 0 2rem;
 }
 header nav {
   display: flex;
