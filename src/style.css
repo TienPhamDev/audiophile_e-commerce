@@ -271,16 +271,6 @@ header nav ul {
   gap: 2rem;
 }
 .hero {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  height: 40rem;
-  width: 50%;
-}
-.hero-text h2 {
-  margin-bottom: 2rem;
-}
-.hero-text p {
-  margin-bottom: 2rem;
-  width: 70%;
+  background: url("../assets/home/desktop/image-hero.jpg") no-repeat center
+    center;
 }
