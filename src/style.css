@@ -271,6 +271,13 @@ header nav ul {
   gap: 2rem;
 }
 .hero {
-  background: url("../assets/home/desktop/image-hero.jpg") no-repeat center
-    center;
+  background-image: url("./assets/home/desktop/image-hero.jpg");
+}
+.hero-text h2 {
+  margin-bottom: 2rem;
+}
+.hero-text p {
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
 }
