@@ -51,9 +51,12 @@ const Home = () => {
       <section class="products">
         <div class="product-1st-item">
           <img src=${imgSpeakerZX9} alt="zx9 speaker">
-          <h3>zX9 SPEAKER</h3>
-          <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-          <a href="/headphones/xx99-mark-one" class="btn-secondary">See Product</a>
+          <svg width="944" height="944" xmlns="http://www.w3.org/2000/svg"><g stroke="#FFF" fill="none" fill-rule="evenodd" opacity=".202"><circle cx="472" cy="472" r="235.5"/><circle cx="472" cy="472" r="270.5"/><circle cx="472" cy="472" r="471.5"/></g></svg>
+          <div class="product-1st-item-text">
+            <h3>zX9 <br>SPEAKER</h3>
+            <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
+            <a href="/headphones/xx99-mark-one" class="button-3">See Product</a>
+          </div>        
         </div>
         <div class="product-2nd-item">
           <img src=${imgSpeakerZX7} alt="zx7 speaker">
