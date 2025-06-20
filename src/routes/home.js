@@ -28,8 +28,6 @@ const Home = () => {
           <p>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
           <a href="/headphones/xx99-mark-two" class="button-1">See Product</a>
         </div>
-        <div class="overlay"></div>
-
       </section>
     </header>
     <main>
