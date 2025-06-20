@@ -32,35 +32,35 @@ const Home = () => {
     </header>
     <main>
       <section class='categories'>
-        <div class="headphones">
+        <div class="category-item">
           <img src=${imgThumbnailHeadphone} alt="Headphones">
           <h3>HEADPHONES</h3>
-          <a href="/headphones/xx99-mark-one" class="btn-secondary">Shop</a>
+          <a href="/headphones/xx99-mark-one" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
         </div>
-        <div class="speakers">
+        <div class="category-item">
           <img src=${imgThumbnailSpeaker} alt="Speakers">
           <h3>SPEAKERS</h3>
-          <a href="/headphones/xx59" class="btn-secondary">Shop</a>
+          <a href="/headphones/xx59" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
         </div>
-        <div class="earphones">
+        <div class="category-item">
           <img src=${imgThumbnailEarphone} alt="Speaker">
           <h3>EARPHONES</h3>
-          <a href="/speakers/zx9-speaker" class="btn-secondary">Shop</a>
+          <a href="/speakers/zx9-speaker" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
         </div>
       </section>
       <section class="products">
-        <div class="product">
+        <div class="product-1st-item">
           <img src=${imgSpeakerZX9} alt="zx9 speaker">
           <h3>zX9 SPEAKER</h3>
           <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
           <a href="/headphones/xx99-mark-one" class="btn-secondary">See Product</a>
         </div>
-        <div class="product">
+        <div class="product-2nd-item">
           <img src=${imgSpeakerZX7} alt="zx7 speaker">
           <h3>ZX7 SPEAKER</h3>
           <a href="/headphones/xx59" class="btn-secondary">See Product</a>
         </div>
-        <div class="product">
+        <div class="product-3rd-item">
           <img src=${imgEarphoneYX1} alt="yx1 earphones">
           <h3>YX1 EARPHONES</h3>
           <a href="/speakers/zx9-speaker" class="btn-secondary">See Product</a>
