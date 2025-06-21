@@ -60,17 +60,23 @@ const Home = () => {
         </div>
         <div class="product-2nd-item">
           <img src=${imgSpeakerZX7} alt="zx7 speaker">
-          <h3>ZX7 SPEAKER</h3>
-          <a href="/headphones/xx59" class="btn-secondary">See Product</a>
+          <div class="product-2nd-item-text">
+            <h3>ZX7 SPEAKER</h3>
+            <a href="/headphones/xx59" class="button-2">See Product</a>
+          </div>
         </div>
         <div class="product-3rd-item">
           <img src=${imgEarphoneYX1} alt="yx1 earphones">
-          <h3>YX1 EARPHONES</h3>
-          <a href="/speakers/zx9-speaker" class="btn-secondary">See Product</a>
+          <div class="product-3rd-item-text-container">
+            <div class="product-3rd-item-text">
+              <h3>YX1 EARPHONES</h3>
+              <a href="/speakers/zx9-speaker" class="button-2">See Product</a>
+            </div>
+          </div>        
         </div>
       </section>
       <section class="about">
-        <div>
+        <div class="about-text">
           <h2>Bringing you the <span>best</span> audio gear</h2>
           <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
         </div>

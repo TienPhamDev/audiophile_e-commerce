@@ -393,3 +393,59 @@ main {
 .product-1st-item-text p {
   width: 60%;
 }
+/* Product 2 homepage -------------------------------- ------------------*/
+.product-2nd-item {
+  height: 30.2rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  position: relative;
+}
+.product-2nd-item img {
+  height: 100%;
+  z-index: 1;
+}
+.product-2nd-item-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 2rem;
+}
+.product-2nd-item-text h3 {
+  font-size: 3.2rem;
+  line-height: 1.2;
+}
+/* Product 3 homepage ------------------------------------------- */
+.product-3rd-item {
+  height: 30.2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.product-3rd-item img {
+  height: 100%;
+  border-radius: 0.8rem;
+  width: 50%;
+}
+.product-3rd-item-text-container {
+  background-color: var(--color-light-grey);
+  width: 50%;
+  height: 100%;
+  border-radius: 0.8rem;
+  position: relative;
+}
+.product-3rd-item-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2rem;
+}
+/* About ----------------------------------------------------- */
