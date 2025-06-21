@@ -449,3 +449,55 @@ main {
   gap: 2rem;
 }
 /* About ----------------------------------------------------- */
+.about {
+  height: 50.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.about img {
+  height: 100%;
+  border-radius: 0.8rem;
+}
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.about-text p {
+  width: 85%;
+}
+/* footer -------------------------------------------------------------- */
+footer {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  background-color: var(--color-primary);
+  width: 8rem;
+  height: 0.3rem;
+  left: 2%;
+}
+footer nav ul {
+  display: flex;
+  justify-content: end;
+  gap: 4rem;
+}
+footer p {
+  padding: 2rem 0;
+  color: #979797;
+}
+.socials {
+  display: flex;
+  align-self: self-end;
+  justify-self: self-end;
+  gap: 3rem;
+}
