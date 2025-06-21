@@ -1,7 +1,8 @@
 import Home from "./routes/home";
-
+import Headphones from "./routes/headphone";
 const routes = {
   "/": Home,
+  "/headphones": Headphones,
 };
 
 const navigateTo = (path) => {

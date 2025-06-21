@@ -253,7 +253,7 @@ input.error::placeholder {
 /* Style for Home.js -----------------------------------*/
 
 /* header ------------------------------------- */
-header {
+.header-homepage {
   justify-self: stretch;
   background-color: var(--color-dark);
   color: var(--color-white);
@@ -500,4 +500,16 @@ footer p {
   align-self: self-end;
   justify-self: self-end;
   gap: 3rem;
+}
+/* headphones page ------------------------------------------------------*/
+.header-headphones {
+  justify-self: stretch;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  height: 30rem;
+  padding: 0 2rem;
+}
+.header-headphones h1 {
+  text-align: center;
+  padding: 8rem 0;
 }
