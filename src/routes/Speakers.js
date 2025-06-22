@@ -6,11 +6,11 @@ import imgAbout from "../assets/shared/desktop/image-best-gear.jpg";
 import data from "../data.json";
 
 const Speakers = () => {
-  const headPhonesData = data.filter((item) => item.category === "headphones");
+  const SpeakerData = data.filter((item) => item.category === "speakers");
 
-  const newHeadPhonesData = headPhonesData.find((item) => item.new === true);
+  const newProductData = SpeakerData.find((item) => item.new === true);
 
-  const allHeadPhonesData = headPhonesData.filter((item) => item.new === false);
+  const allProductData = SpeakerData.filter((item) => item.new === false);
 
   const content = `
     <div class="container">
@@ -31,20 +31,20 @@ const Speakers = () => {
         <section class="products">
           <div class="product-item">
             <div class="product-image">
-              <img src=${newHeadPhonesData.categoryImage.desktop} alt="${
-    newHeadPhonesData.name
+              <img src=${newProductData.categoryImage.desktop} alt="${
+    newProductData.name
   }">
             </div>
             <div class="product-info">
                   <span class="overline color-main">NEW PRODUCT</span> 
-                  <h2>${newHeadPhonesData.name}</h2>
-                  <p>${newHeadPhonesData.description}</p>
+                  <h2>${newProductData.name}</h2>
+                  <p>${newProductData.description}</p>
                   <a href="/headphones/${
-                    newHeadPhonesData.slug
+                    newProductData.slug
                   }" class="button-1">SEE PRODUCT</a>
                 </div>
           </div>
-          ${allHeadPhonesData
+          ${allProductData
             .map((item, index) => {
               if (index % 2 === 0) {
                 return `
