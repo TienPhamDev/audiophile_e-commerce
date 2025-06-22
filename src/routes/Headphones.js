@@ -29,22 +29,38 @@ const Headphones = () => {
       </header>
       <main>
         <section class="products">
-          <div class="product-item-new">
+          <div class="product-item">
             <div class="product-image">
               <img src=${newHeadPhonesData.categoryImage.desktop} alt="${
     newHeadPhonesData.name
   }">
             </div>
             <div class="product-info">
+                  <span class="overline color-main">NEW PRODUCT</span> 
                   <h2>${newHeadPhonesData.name}</h2>
                   <p>${newHeadPhonesData.description}</p>
                   <a href="/headphones/${
                     newHeadPhonesData.slug
-                  }" class="btn-primary">SEE PRODUCT</a>
+                  }" class="button-1">SEE PRODUCT</a>
                 </div>
           </div>
-          ${allHeadPhonesData.map((item) => {
-            return `
+          ${allHeadPhonesData
+            .map((item, index) => {
+              if (index % 2 === 0) {
+                return `
+                <div class="product-item">
+                  <div class="product-info">
+                    <h2>${item.name}</h2>
+                    <p>${item.description}</p>
+                    <a href="/headphones/${item.slug}" class="button-1">SEE PRODUCT</a>
+                  </div>
+                  <div class="product-image">
+                    <img src=${item.categoryImage.desktop} alt="${item.name}">
+                  </div>
+                </div>
+              `;
+              } else {
+                return `
               <div class="product-item">
                 <div class="product-image">
                   <img src=${item.categoryImage.desktop} alt="${item.name}">
@@ -52,11 +68,13 @@ const Headphones = () => {
                 <div class="product-info">
                   <h2>${item.name}</h2>
                   <p>${item.description}</p>
-                  <a href="/headphones/${item.slug}" class="btn-primary">SEE PRODUCT</a>
+                  <a href="/headphones/${item.slug}" class="button-1">SEE PRODUCT</a>
                 </div>
               </div>
             `;
-          })}
+              }
+            })
+            .join("")}
         </section>
         <section class='categories'>
           <div class="category-item">

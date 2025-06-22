@@ -318,8 +318,9 @@ main {
 .categories {
   display: flex;
   align-items: stretch;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 2rem;
+  margin: 6.4rem 0;
 }
 .category-item {
   display: flex;
@@ -514,4 +515,41 @@ footer p {
 .header-headphones h1 {
   text-align: center;
   padding: 8rem 0;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 4.4rem;
+  margin: 4.4rem 0;
+  padding: 0 4.4rem;
+}
+.products div {
+  height: 56rem;
+}
+.product-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7.4rem;
+}
+.product-info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 3rem;
+}
+.product-info p {
+  width: 80%;
+}
+.product-image {
+  height: 100%;
+  width: 54rem;
+}
+.product-image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.6rem;
 }
