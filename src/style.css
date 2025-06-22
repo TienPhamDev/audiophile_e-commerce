@@ -402,6 +402,7 @@ main {
 }
 .product-2nd-item img {
   height: 100%;
+  width: 100%;
   z-index: 1;
 }
 .product-2nd-item-text {
@@ -459,6 +460,7 @@ main {
 }
 .about img {
   height: 100%;
+  width: 50%;
   border-radius: 0.8rem;
 }
 .about-text {
