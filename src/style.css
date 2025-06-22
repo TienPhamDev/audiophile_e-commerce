@@ -505,14 +505,14 @@ footer p {
   gap: 3rem;
 }
 /* headphones page ------------------------------------------------------*/
-.header-headphones {
+.header-categories {
   justify-self: stretch;
   background-color: var(--color-dark);
   color: var(--color-white);
   height: 30rem;
   padding: 0 2rem;
 }
-.header-headphones h1 {
+.header-categories h1 {
   text-align: center;
   padding: 8rem 0;
 }
