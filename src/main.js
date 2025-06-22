@@ -1,5 +1,5 @@
 import Home from "./routes/home";
-import Headphones from "./routes/headphone";
+import Headphones from "./routes/Headphones";
 const routes = {
   "/": Home,
   "/headphones": Headphones,

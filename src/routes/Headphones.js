@@ -2,11 +2,16 @@ import "../style.css";
 import imgThumbnailHeadphone from "../assets/shared/desktop/image-category-thumbnail-headphones.png";
 import imgThumbnailSpeaker from "../assets/shared/desktop/image-category-thumbnail-speakers.png";
 import imgThumbnailEarphone from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
-import imgSpeakerZX9 from "../assets/home/desktop/image-speaker-zx9.png";
-import imgSpeakerZX7 from "../assets/home/desktop/image-speaker-zx7.jpg";
-import imgEarphoneYX1 from "../assets/home/desktop/image-earphones-yx1.jpg";
 import imgAbout from "../assets/shared/desktop/image-best-gear.jpg";
+import data from "../data.json";
+
 const Headphones = () => {
+  const headPhonesData = data.filter((item) => item.category === "headphones");
+
+  const newHeadPhonesData = headPhonesData.find((item) => item.new === true);
+
+  const allHeadPhonesData = headPhonesData.filter((item) => item.new === false);
+
   const content = `
     <div class="container">
       <header class="header-headphones">
@@ -23,8 +28,35 @@ const Headphones = () => {
         <h1>HEADPHONES</h1>
       </header>
       <main>
-        <section class="products-headphones">
-          
+        <section class="products">
+          <div class="product-item-new">
+            <div class="product-image">
+              <img src=${newHeadPhonesData.categoryImage.desktop} alt="${
+    newHeadPhonesData.name
+  }">
+            </div>
+            <div class="product-info">
+                  <h2>${newHeadPhonesData.name}</h2>
+                  <p>${newHeadPhonesData.description}</p>
+                  <a href="/headphones/${
+                    newHeadPhonesData.slug
+                  }" class="btn-primary">SEE PRODUCT</a>
+                </div>
+          </div>
+          ${allHeadPhonesData.map((item) => {
+            return `
+              <div class="product-item">
+                <div class="product-image">
+                  <img src=${item.categoryImage.desktop} alt="${item.name}">
+                </div>
+                <div class="product-info">
+                  <h2>${item.name}</h2>
+                  <p>${item.description}</p>
+                  <a href="/headphones/${item.slug}" class="btn-primary">SEE PRODUCT</a>
+                </div>
+              </div>
+            `;
+          })}
         </section>
         <section class='categories'>
           <div class="category-item">

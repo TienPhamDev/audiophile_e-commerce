@@ -48,7 +48,7 @@ const Home = () => {
           <a href="/speakers/zx9-speaker" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
         </div>
       </section>
-      <section class="products">
+      <section class="products-homepage">
         <div class="product-1st-item">
           <img src=${imgSpeakerZX9} alt="zx9 speaker">
           <svg width="944" height="944" xmlns="http://www.w3.org/2000/svg"><g stroke="#FFF" fill="none" fill-rule="evenodd" opacity=".202"><circle cx="472" cy="472" r="235.5"/><circle cx="472" cy="472" r="270.5"/><circle cx="472" cy="472" r="471.5"/></g></svg>

@@ -346,7 +346,7 @@ main {
   gap: 1rem;
 }
 /* Product ----------------------------------------- */
-.products {
+.products-homepage {
   padding: 10rem 0;
   display: flex;
   flex-direction: column;
