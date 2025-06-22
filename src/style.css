@@ -253,7 +253,7 @@ input.error::placeholder {
 /* Style for Home.js -----------------------------------*/
 
 /* header ------------------------------------- */
-header {
+.header-homepage {
   justify-self: stretch;
   background-color: var(--color-dark);
   color: var(--color-white);
@@ -318,8 +318,9 @@ main {
 .categories {
   display: flex;
   align-items: stretch;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 2rem;
+  margin: 6.4rem 0;
 }
 .category-item {
   display: flex;
@@ -346,7 +347,7 @@ main {
   gap: 1rem;
 }
 /* Product ----------------------------------------- */
-.products {
+.products-homepage {
   padding: 10rem 0;
   display: flex;
   flex-direction: column;
@@ -402,6 +403,7 @@ main {
 }
 .product-2nd-item img {
   height: 100%;
+  width: 100%;
   z-index: 1;
 }
 .product-2nd-item-text {
@@ -459,6 +461,7 @@ main {
 }
 .about img {
   height: 100%;
+  width: 50%;
   border-radius: 0.8rem;
 }
 .about-text {
@@ -500,4 +503,53 @@ footer p {
   align-self: self-end;
   justify-self: self-end;
   gap: 3rem;
+}
+/* headphones page ------------------------------------------------------*/
+.header-headphones {
+  justify-self: stretch;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  height: 30rem;
+  padding: 0 2rem;
+}
+.header-headphones h1 {
+  text-align: center;
+  padding: 8rem 0;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 4.4rem;
+  margin: 4.4rem 0;
+  padding: 0 4.4rem;
+}
+.products div {
+  height: 56rem;
+}
+.product-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7.4rem;
+}
+.product-info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 3rem;
+}
+.product-info p {
+  width: 80%;
+}
+.product-image {
+  height: 100%;
+  width: 54rem;
+}
+.product-image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.6rem;
 }
