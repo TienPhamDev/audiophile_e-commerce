@@ -2,6 +2,7 @@ import Home from "./routes/home";
 import Headphones from "./routes/Headphones";
 import Speakers from "./routes/Speakers";
 import Earphones from "./routes/Earphones";
+import ProductDetails from "./routes/ProductDetails";
 const routes = {
   "/": Home,
   "/headphones": Headphones,
@@ -15,7 +16,24 @@ const navigateTo = (path) => {
 };
 
 const router = () => {
+  // Check if the current path is a product details page
   const path = window.location.pathname;
+  // dynamic routing
+  // Check if the path includes product categories
+  // and extract the slug for product details
+  if (
+    path.includes("/headphones/") ||
+    path.includes("/speakers/") ||
+    path.includes("/earphones/")
+  ) {
+    const slug = path.split("/").pop();
+
+    const productDetailsPage = ProductDetails(slug);
+    document.querySelector("#app").innerHTML = productDetailsPage;
+
+    return;
+  }
+  // Get the current path and determine the route ,static route
   const route = routes[path] || Home; // Default to Home if no route matches
   const content = route();
 

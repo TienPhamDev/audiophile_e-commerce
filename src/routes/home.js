@@ -26,7 +26,7 @@ const Home = () => {
           <span class="overline">NEW PRODUCT</span>
           <h2>XX99 Mark II<br>Headphones</h2>
           <p>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
-          <a href="/headphones/xx99-mark-two" class="button-1">See Product</a>
+          <a href="/headphones/xx99-mark-two-headphones" class="button-1">See Product</a>
         </div>
       </section>
     </header>

@@ -514,6 +514,7 @@ footer p {
 }
 .header-categories h1 {
   text-align: center;
+  font-size: 4.4rem;
   padding: 8rem 0;
 }
 
@@ -531,7 +532,7 @@ footer p {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 7.4rem;
+  gap: 3rem;
 }
 .product-info {
   width: 50%;
@@ -539,17 +540,24 @@ footer p {
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  gap: 3rem;
+  gap: 2rem;
 }
 .product-info p {
   width: 80%;
 }
 .product-image {
   height: 100%;
-  width: 54rem;
+  width: 50%;
 }
 .product-image img {
   height: 100%;
   width: 100%;
   border-radius: 0.6rem;
+}
+/* Product details page ------------------------------------------------- */
+.header-product-details {
+  justify-self: stretch;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 0 2rem;
 }
