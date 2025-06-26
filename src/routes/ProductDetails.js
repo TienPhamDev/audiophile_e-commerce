@@ -4,13 +4,16 @@ import imgThumbnailSpeaker from "../assets/shared/desktop/image-category-thumbna
 import imgThumbnailEarphone from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
 import imgAbout from "../assets/shared/desktop/image-best-gear.jpg";
 import data from "../data.json";
-
 const ProductDetails = (slug) => {
   const product = data.find((item) => item.slug === slug);
   if (product === undefined) {
     return `<h1>Product not found</h1>`;
   }
-  console.log(product);
+  const productImg = `.${product.image.desktop}`;
+  const productGalleryFirst = `.${product.gallery.first.desktop}`;
+  const productGallerySecond = `.${product.gallery.second.desktop}`;
+  const productGalleryThird = `.${product.gallery.third.desktop}`;
+
   const content = `
     <div class="container">
       <header class="header-product-details">
@@ -27,39 +30,76 @@ const ProductDetails = (slug) => {
       </header>
       <main>
         <section class="product-details">
-          <div class="product-image">
+          <div class="product-details-image">
+            <img src="${productImg}" alt="${product.name}" />
           </div>
-          <div class="product-info">
-          </div>
-          <div class="product-features">
-          </div>
-          <div class="product-includes">
-          </div>
-          <div class="product-gallery">
-          </div>
-          <div class="product-others">
-            <h2>YOU MAY ALSO LIKE</h2>
-            <div class="product-orders-item">
+          <div class="product-details-info">
+            <h1>${product.name}</h1>
+            <p>${product.description}</p>
+
+            <p class="product-details-price">$${product.price}</p>
+            <div class="product-details-quantity">
+              <div class="quantity-buttons">
+                <button class="" id="decrease">-</button>
+                <input type="number" id="quantity" disabled name="quantity" min="1" max="10" value="1">
+                <button class="" id="increase">+</button>
+              </div>
+              <button class="button-1" id="addToCart">ADD TO CART</button>
             </div>
+          </div>
+          <div class="product-details-features">
+            <h2>FEATURES</h2>
+            <p>${product.features}</p>
+          </div>
+          <div class="product-details-included">
+            <h2>IN THE BOX</h2>
+            <ul>
+              ${product.includes
+                .map((item) => `<li>${item.quantity}x ${item.item}</li>`)
+                .join("")}
+            </ul> 
+          </div>
+          <div class="product-details-gallery">
+            <div class="product-gallery-item">
+              <img src="${productGalleryFirst}" alt="Gallery Image 1">
+              <img src="${productGallerySecond}" alt="Gallery Image 2">
+              <img src="${productGalleryThird}" alt="Gallery Image 3">
+            </div>
+          </div>
+          <div class="product-details-others">
+            <h2>YOU MAY ALSO LIKE</h2>
+            <div class="product-details-others-items">
+            ${product.others
+              .map((item) => {
+                const otherImg = `.${item.image.desktop}`;
+                return `<div class="product-details-others-item">
+                        <img src="${otherImg}" alt="${item.name}">
+                        <h3>${item.name}</h3>
+                        <a href="/${product.category}/${item.slug}" class="button-1">SEE PRODUCT</a>
+                      </div>`;
+              })
+              .join("")}
+              </div>
+            
           </div>
         </section>
         <section class='categories'>
-          <div class="category-item">
-            <img src=${imgThumbnailHeadphone} alt="Headphones">
-            <h3>HEADPHONES</h3>
-            <a href="/headphones/xx99-mark-one" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
-          </div>
-          <div class="category-item">
-            <img src=${imgThumbnailSpeaker} alt="Speakers">
-            <h3>SPEAKERS</h3>
-            <a href="/headphones/xx59" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
-          </div>
-          <div class="category-item">
-            <img src=${imgThumbnailEarphone} alt="Speaker">
-            <h3>EARPHONES</h3>
-            <a href="/speakers/zx9-speaker" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
-          </div>
-        </section>
+                <div class="category-item">
+                  <img src=${imgThumbnailHeadphone} alt="Headphones">
+                  <h3>HEADPHONES</h3>
+                  <a href="/headphones" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
+                </div>
+                <div class="category-item">
+                  <img src=${imgThumbnailSpeaker} alt="Speakers">
+                  <h3>SPEAKERS</h3>
+                  <a href="/speakers" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
+                </div>
+                <div class="category-item">
+                  <img src=${imgThumbnailEarphone} alt="Speaker">
+                  <h3>EARPHONES</h3>
+                  <a href="/earphones" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
+                </div>
+              </section>
 
         <section class="about">
           <div class="about-text">

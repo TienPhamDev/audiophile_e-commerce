@@ -76,24 +76,23 @@ const Headphones = () => {
             })
             .join("")}
         </section>
-        <section class='categories'>
-          <div class="category-item">
-            <img src=${imgThumbnailHeadphone} alt="Headphones">
-            <h3>HEADPHONES</h3>
-            <a href="/headphones/xx99-mark-one" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
-          </div>
-          <div class="category-item">
-            <img src=${imgThumbnailSpeaker} alt="Speakers">
-            <h3>SPEAKERS</h3>
-            <a href="/headphones/xx59" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
-          </div>
-          <div class="category-item">
-            <img src=${imgThumbnailEarphone} alt="Speaker">
-            <h3>EARPHONES</h3>
-            <a href="/speakers/zx9-speaker" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
-          </div>
-        </section>
-
+<section class='categories'>
+        <div class="category-item">
+          <img src=${imgThumbnailHeadphone} alt="Headphones">
+          <h3>HEADPHONES</h3>
+          <a href="/headphones" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
+        </div>
+        <div class="category-item">
+          <img src=${imgThumbnailSpeaker} alt="Speakers">
+          <h3>SPEAKERS</h3>
+          <a href="/speakers" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
+        </div>
+        <div class="category-item">
+          <img src=${imgThumbnailEarphone} alt="Speaker">
+          <h3>EARPHONES</h3>
+          <a href="/earphones" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
+        </div>
+      </section>
         <section class="about">
           <div class="about-text">
             <h2>Bringing you the <span class="color-main">best</span> audio gear</h2>
