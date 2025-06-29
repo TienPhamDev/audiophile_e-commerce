@@ -135,4 +135,45 @@ const ProductDetails = (slug) => {
 
   return content;
 };
-export default ProductDetails;
+const addToCart = (slug) => {
+  const product = data.find((item) => item.slug === slug);
+  const addToCartButton = document.getElementById("addToCart");
+  const quantityInput = document.getElementById("quantity");
+  const decreaseButton = document.getElementById("decrease");
+  const increaseButton = document.getElementById("increase");
+
+  let quantity = parseInt(quantityInput.value);
+
+  decreaseButton.addEventListener("click", () => {
+    if (quantity > 1) {
+      quantity--;
+      quantityInput.value = quantity;
+    }
+  });
+
+  increaseButton.addEventListener("click", () => {
+    if (quantity < 10) {
+      quantity++;
+      quantityInput.value = quantity;
+    }
+  });
+
+  addToCartButton.addEventListener("click", () => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    alert(`${quantity} ${slug} added to cart`);
+    for (let i = 0; i < quantity; i++) {
+      cart.push({ ...product });
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  });
+};
+const initializeProductDetails = (slug) => {
+  addToCart(slug);
+  const product = data.find((item) => item.slug === slug);
+  if (product) {
+    document.title = `${product.name} | Audiophile`;
+  } else {
+    document.title = "Product Not Found | Audiophile";
+  }
+};
+export { ProductDetails, initializeProductDetails };

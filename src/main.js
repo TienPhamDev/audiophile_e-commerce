@@ -2,7 +2,18 @@ import Home from "./routes/home";
 import Headphones from "./routes/Headphones";
 import Speakers from "./routes/Speakers";
 import Earphones from "./routes/Earphones";
-import ProductDetails from "./routes/ProductDetails";
+import {
+  ProductDetails,
+  initializeProductDetails,
+} from "./routes/ProductDetails";
+
+// Initialize the cart in localStorage
+// If the cart is not already initialized, set it to an empty array
+if (!localStorage.getItem("cart")) {
+  localStorage.setItem("cart", JSON.stringify([]));
+}
+
+// Define the routes for the application
 const routes = {
   "/": Home,
   "/headphones": Headphones,
@@ -30,7 +41,7 @@ const router = () => {
 
     const productDetailsPage = ProductDetails(slug);
     document.querySelector("#app").innerHTML = productDetailsPage;
-
+    initializeProductDetails(slug);
     return;
   }
   // Get the current path and determine the route ,static route
