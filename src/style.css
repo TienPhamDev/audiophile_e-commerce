@@ -665,3 +665,13 @@ footer p {
   grid-column: 2/3;
   grid-row: 1/3;
 }
+.product-details-features p,
+.product-details-included ul {
+  margin: 2rem 0;
+}
+/* Cart --------------------------------------------------- */
+.cart-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
