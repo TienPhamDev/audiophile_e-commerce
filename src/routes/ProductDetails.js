@@ -181,22 +181,29 @@ const addToCart = (slug) => {
   });
 };
 const cartItemButton = () => {
-  const items = JSON.parse(localStorage.getItem("processingCart")) || [];
+  const items = JSON.parse(localStorage.getItem("cart")) || [];
   console.log(items);
   items.forEach((item, index) => {
     let quantity = item.quantity;
-
+    const inputToalPrice = document.getElementById("totalPrice");
     const quantityInput = document.querySelectorAll("#cart-quantity")[index];
     const decreaseButton = document.querySelectorAll("#cart-decrease")[index];
     const increaseButton = document.querySelectorAll("#cart-increase")[index];
 
     // quantityInput.value = quantity;
     decreaseButton.addEventListener("click", () => {
-      if (quantity > 0) {
+      if (quantity > 1) {
         quantity--;
         quantityInput.value = quantity;
         items[index].quantity = quantity;
-        localStorage.setItem("processingCart", JSON.stringify(items));
+        localStorage.setItem("cart", JSON.stringify(items));
+        const totalPrice = items.reduce((total, item) => {
+          return total + item.price * item.quantity;
+        }, 0);
+        inputToalPrice.value = `$${totalPrice.toFixed(2)}`;
+      } else {
+        items.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(items));
       }
     });
     increaseButton.addEventListener("click", () => {
@@ -204,7 +211,11 @@ const cartItemButton = () => {
         quantity++;
         quantityInput.value = quantity;
         items[index].quantity = quantity;
-        localStorage.setItem("processingCart", JSON.stringify(items));
+        localStorage.setItem("cart", JSON.stringify(items));
+        const totalPrice = items.reduce((total, item) => {
+          return total + item.price * item.quantity;
+        }, 0);
+        inputToalPrice.value = `$${totalPrice.toFixed(2)}`;
       }
     });
   });
@@ -232,11 +243,9 @@ const processingCart = () => {
         return acc;
       }, []);
 
-      localStorage.setItem("processingCart", JSON.stringify(processingCart));
+      localStorage.setItem("cart", JSON.stringify(processingCart));
 
-      const processingCartItems = JSON.parse(
-        localStorage.getItem("processingCart")
-      );
+      const processingCartItems = JSON.parse(localStorage.getItem("cart"));
       const cartItems = processingCartItems
         .map((item) => {
           return `<li>${item.name} - $${item.price} - 
