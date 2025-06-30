@@ -1,10 +1,10 @@
-import Home from "./routes/home";
-import Headphones from "./routes/Headphones";
-import Speakers from "./routes/Speakers";
-import Earphones from "./routes/Earphones";
+import { Home, initFuncHome } from "./routes/home";
+import { Headphones, initFuncHeadphones } from "./routes/Headphones";
+import { Speakers, initFuncSpeakers } from "./routes/Speakers";
+import { Earphones, initFuncEarphones } from "./routes/Earphones";
 import {
   ProductDetails,
-  initializeProductDetails,
+  initFuncProductDetails,
 } from "./routes/ProductDetails";
 
 // Initialize the cart in localStorage
@@ -41,15 +41,29 @@ const router = () => {
 
     const productDetailsPage = ProductDetails(slug);
     document.querySelector("#app").innerHTML = productDetailsPage;
-    initializeProductDetails(slug);
+    initFuncProductDetails(slug);
     return;
   }
   // Get the current path and determine the route ,static route
   const route = routes[path] || Home; // Default to Home if no route matches
+
   const content = route();
 
   // Render the content in the app element
   document.getElementById("app").innerHTML = content;
+  // Initialize the home page or any other route that requires initialization
+  if (route === Home) {
+    initFuncHome();
+  }
+  if (route === Headphones) {
+    initFuncHeadphones();
+  }
+  if (route === Speakers) {
+    initFuncSpeakers();
+  }
+  if (route === Earphones) {
+    initFuncEarphones();
+  }
 };
 
 // Handle browser navigation (back/forward buttons)

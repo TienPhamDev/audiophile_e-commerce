@@ -4,6 +4,7 @@ import imgThumbnailSpeaker from "../assets/shared/desktop/image-category-thumbna
 import imgThumbnailEarphone from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
 import imgAbout from "../assets/shared/desktop/image-best-gear.jpg";
 import data from "../data.json";
+import processingCart from "../cart/processingCart.js";
 const ProductDetails = (slug) => {
   // Check if the cart exists in localStorage, if not, initialize it
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -180,130 +181,9 @@ const addToCart = (slug) => {
     document.location.reload();
   });
 };
-const cartItemButton = () => {
-  const items = JSON.parse(localStorage.getItem("cart")) || [];
-  console.log(items);
-  items.forEach((item, index) => {
-    let quantity = item.quantity;
-    const inputToalPrice = document.getElementById("totalPrice");
-    const quantityInput = document.querySelectorAll("#cart-quantity")[index];
-    const decreaseButton = document.querySelectorAll("#cart-decrease")[index];
-    const increaseButton = document.querySelectorAll("#cart-increase")[index];
 
-    // quantityInput.value = quantity;
-    decreaseButton.addEventListener("click", () => {
-      if (quantity > 1) {
-        quantity--;
-        quantityInput.value = quantity;
-        items[index].quantity = quantity;
-        localStorage.setItem("cart", JSON.stringify(items));
-        const totalPrice = items.reduce((total, item) => {
-          return total + item.price * item.quantity;
-        }, 0);
-        inputToalPrice.value = `$${totalPrice.toFixed(2)}`;
-      } else {
-        items.splice(index, 1);
-        localStorage.setItem("cart", JSON.stringify(items));
-      }
-    });
-    increaseButton.addEventListener("click", () => {
-      if (quantity < 10) {
-        quantity++;
-        quantityInput.value = quantity;
-        items[index].quantity = quantity;
-        localStorage.setItem("cart", JSON.stringify(items));
-        const totalPrice = items.reduce((total, item) => {
-          return total + item.price * item.quantity;
-        }, 0);
-        inputToalPrice.value = `$${totalPrice.toFixed(2)}`;
-      }
-    });
-  });
-};
-
-const processingCart = () => {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const cartButtonElement = document.getElementById("cart-button");
-  const cartCountElement = document.querySelector(".cart-count");
-  console.log(cart);
-
-  cartButtonElement.addEventListener("click", () => {
-    if (cart.length > 0) {
-      const processingCart = cart.reduce((acc, item) => {
-        const existingItem = acc.find((i) => i.name === item.name);
-        if (existingItem) {
-          existingItem.quantity += 1;
-          return acc;
-        }
-
-        if (!acc.some((i) => i.name === item.name)) {
-          acc.push({ ...item, quantity: 1 });
-        }
-
-        return acc;
-      }, []);
-
-      localStorage.setItem("cart", JSON.stringify(processingCart));
-
-      const processingCartItems = JSON.parse(localStorage.getItem("cart"));
-      const cartItems = processingCartItems
-        .map((item) => {
-          return `<li>${item.name} - $${item.price} - 
-                <div class="quantity-buttons">
-                  <button class="" id="cart-decrease">&minus;</button>
-                  <input type="number" id="cart-quantity" disabled name="quantity" min="1" max="10" value=${item.quantity}>
-                  <button class="" id="cart-increase">&plus;</button>
-                </div>
-              </li>`;
-        })
-        .join("");
-
-      const totalPrice = processingCartItems.reduce(
-        (total, item) => total + item.price * item.quantity,
-        0
-      );
-      const cartContent = `
-        <div class="cart-header">
-          <span class="cart-title">Cart (${cart.length} items)</span>
-          <button class="close-cart">Remove all</button>
-        </div>
-        <ul>${cartItems}</ul>
-        <p>Total: <input type='text' id='totalPrice' disabled value=$${totalPrice.toFixed(
-          2
-        )}></p>
-        <button id="checkout-button">Checkout</button>
-      `;
-      const cartModal = document.createElement("div");
-      cartModal.className = "cart-modal";
-      cartModal.innerHTML = cartContent;
-
-      const cartOverlay = document.createElement("div");
-      cartOverlay.className = "cart-overlay";
-      cartOverlay.appendChild(cartModal);
-
-      const header = document.getElementsByTagName("header")[0];
-      header.appendChild(cartOverlay);
-
-      cartItemButton();
-
-      const checkoutButton = document.getElementById("checkout-button");
-      checkoutButton.addEventListener("click", () => {
-        alert("Proceeding to checkout...");
-
-        // Here you can implement the checkout logic
-      });
-      const closeCartButton = document.querySelector(".close-cart");
-      closeCartButton.addEventListener("click", () => {
-        localStorage.removeItem("cart");
-        document.location.reload();
-      });
-    } else {
-      alert("Your cart is empty");
-    }
-  });
-};
-const initializeProductDetails = (slug) => {
+const initFuncProductDetails = (slug) => {
   addToCart(slug);
   processingCart();
 };
-export { ProductDetails, initializeProductDetails };
+export { ProductDetails, initFuncProductDetails };

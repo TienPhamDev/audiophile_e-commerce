@@ -4,7 +4,7 @@ import imgThumbnailSpeaker from "../assets/shared/desktop/image-category-thumbna
 import imgThumbnailEarphone from "../assets/shared/desktop/image-category-thumbnail-earphones.png";
 import imgAbout from "../assets/shared/desktop/image-best-gear.jpg";
 import data from "../data.json";
-
+import processingCart from "../cart/processingCart";
 const Headphones = () => {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const howManyItemsInCart = cart.length;
@@ -130,4 +130,7 @@ const Headphones = () => {
 
   return content;
 };
-export default Headphones;
+const initFuncHeadphones = () => {
+  processingCart();
+};
+export { Headphones, initFuncHeadphones };

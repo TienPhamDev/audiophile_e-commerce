@@ -6,7 +6,8 @@ import imgSpeakerZX9 from "../assets/home/desktop/image-speaker-zx9.png";
 import imgSpeakerZX7 from "../assets/home/desktop/image-speaker-zx7.jpg";
 import imgEarphoneYX1 from "../assets/home/desktop/image-earphones-yx1.jpg";
 import imgAbout from "../assets/shared/desktop/image-best-gear.jpg";
-import imgHero from "../assets/home/desktop/image-hero.jpg";
+
+import processingCart from "../cart/processingCart";
 const Home = () => {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const howManyItemsInCart = cart.length;
@@ -111,5 +112,7 @@ const Home = () => {
 
   return content;
 };
-
-export default Home;
+const initFuncHome = () => {
+  processingCart();
+};
+export { Home, initFuncHome };
