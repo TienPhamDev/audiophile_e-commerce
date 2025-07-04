@@ -669,28 +669,3 @@ footer p {
 .product-details-included ul {
   margin: 2rem 0;
 }
-/* Cart --------------------------------------------------- */
-.cart-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.cart-modal {
-  position: absolute;
-  top: 15%;
-  right: 2%;
-  z-index: 12;
-  width: 32rem;
-  background-color: var(--color-white);
-  color: var(--color-black);
-  padding: 4.4rem;
-}
-.cart-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* transparent black */
-  color: var(--color-black);
-}
