@@ -8,7 +8,10 @@ import processingCart from "../cart/processingCart.js";
 const ProductDetails = (slug) => {
   // Check if the cart exists in localStorage, if not, initialize it
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const howManyItemsInCart = cart.length;
+  const howManyItemsInCart = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   const product = data.find((item) => item.slug === slug);
   if (product === undefined) {
@@ -170,14 +173,15 @@ const addToCart = (slug) => {
   addToCartButton.addEventListener("click", () => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     alert(`${quantity} ${slug} added to cart`);
-    for (let i = 0; i < quantity; i++) {
-      cart.push({
-        name: product.name,
-        price: product.price,
-        slug: product.slug,
-      });
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
+    cart.push({
+      slug: slug,
+      name: product.name,
+      price: product.price,
+      quantity: quantity,
+    });
+    // Save the updated cart to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+
     document.location.reload();
   });
 };

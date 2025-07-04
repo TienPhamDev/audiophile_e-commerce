@@ -7,7 +7,10 @@ import data from "../data.json";
 import processingCart from "../cart/processingCart";
 const Speakers = () => {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const howManyItemsInCart = cart.length;
+  const howManyItemsInCart = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   const SpeakerData = data.filter((item) => item.category === "speakers");
 

@@ -10,7 +10,10 @@ import imgAbout from "../assets/shared/desktop/image-best-gear.jpg";
 import processingCart from "../cart/processingCart";
 const Home = () => {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const howManyItemsInCart = cart.length;
+  const howManyItemsInCart = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
   const content = `
   <div class="container">
     <header class="header-homepage">

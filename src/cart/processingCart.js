@@ -10,11 +10,10 @@ const handleCartItem = () => {
     const cartCount = document.getElementById("cart-count");
     // quantityInput.value = quantity;
     decreaseButton.addEventListener("click", () => {
-      if (quantity > 0) {
+      if (quantity >= 1) {
         quantity--;
         quantityInput.value = quantity;
         items[index].quantity = quantity;
-        localStorage.setItem("cart", JSON.stringify(items));
         const totalPrice = items.reduce((total, item) => {
           return total + item.price * item.quantity;
         }, 0);
@@ -24,12 +23,70 @@ const handleCartItem = () => {
           0
         );
         cartCount.value = `${howManyItemsInCart}`;
+        localStorage.setItem("cart", JSON.stringify(items));
+      } else if (quantity < 1) {
+        items.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(items));
+        document.location.reload();
+
+        localStorage.setItem("cart", JSON.stringify(items));
+
+        // Create cart modal content
+        const processingCartItems = JSON.parse(localStorage.getItem("cart"));
+        const cartItems = processingCartItems
+          .map((item) => {
+            return `<li>${item.name} - $${item.price} - 
+                <div class="quantity-buttons">
+                  <button class="" id="cart-decrease">&minus;</button>
+                  <input type="number" id="cart-quantity" disabled name="quantity" min="1" max="10" value=${item.quantity}>
+                  <button class="" id="cart-increase">&plus;</button>
+                </div>
+              </li>`;
+          })
+          .join("");
+        // Calculate total price
+        const totalPrice = processingCartItems.reduce(
+          (total, item) => total + item.price * item.quantity,
+          0
+        );
+        const howManyItemsInCart = processingCartItems.reduce(
+          (total, item) => total + item.quantity,
+          0
+        );
+
+        // Create cart modal
+        const cartContent = `
+        <div class="cart-header">
+          <span class="cart-title">Cart (<input disabled type='text' id='cart-count' value=${howManyItemsInCart} />)</span>
+          <button class="close-cart">Remove all</button>
+        </div>
+        <ul>${cartItems}</ul>
+        <p>Total: <input type='text' id='totalPrice' disabled value=$${totalPrice.toFixed(
+          2
+        )}></p>
+        <button id="checkout-button" class="button-1">Checkout</button>
+      `;
+        const cartModal = document.createElement("div");
+        cartModal.className = "cart-modal";
+        cartModal.innerHTML = cartContent;
+
+        const cartOverlay = document.createElement("div");
+        cartOverlay.className = "cart-overlay";
+        cartOverlay.appendChild(cartModal);
+
+        const header = document.getElementsByTagName("header")[0];
+        header.appendChild(cartOverlay);
+
+        document.body.style.overflow = "hidden";
+        handleCartItem();
+
+        const checkoutButton = document.getElementById("checkout-button");
+        checkoutButton.addEventListener("click", () => {
+          alert("Proceeding to checkout...");
+
+          // Here you can implement the checkout logic
+        });
       }
-      // else {
-      //   items.splice(index, 1);
-      //   localStorage.setItem("cart", JSON.stringify(items));
-      //   document.location.reload();
-      // }
     });
     increaseButton.addEventListener("click", () => {
       if (quantity < 10) {
@@ -67,7 +124,7 @@ const processingCart = () => {
         }
 
         if (!acc.some((i) => i.name === item.name)) {
-          acc.push({ ...item, quantity: 1 });
+          acc.push({ ...item });
         }
 
         return acc;
