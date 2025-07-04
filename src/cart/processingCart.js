@@ -23,7 +23,7 @@ const handleCartItem = () => {
           (total, item) => total + item.quantity,
           0
         );
-        cartCount.value = `${howManyItemsInCart}`;
+        cartCount.textContent = `${howManyItemsInCart}`;
         localStorage.setItem("cart", JSON.stringify(items));
       }
       if (quantity < 1) {
@@ -40,7 +40,7 @@ const handleCartItem = () => {
           (total, item) => total + item.quantity,
           0
         );
-        cartCount.value = `${howManyItemsInCart}`;
+        cartCount.textContent = `${howManyItemsInCart}`;
         if (currentCart.length === 0) {
           document.location.reload();
         }
@@ -67,7 +67,7 @@ const handleCartItem = () => {
           (total, item) => total + item.quantity,
           0
         );
-        cartCount.value = `${howManyItemsInCart}`;
+        cartCount.textContent = `${howManyItemsInCart}`;
       }
     });
   });
@@ -123,7 +123,7 @@ const processingCart = () => {
       // Create cart modal
       const cartContent = `
         <div class="cart-header">
-          <span class="cart-title">Cart (<input disabled type='text' id='cart-count' value=${howManyItemsInCart} />)</span>
+          <span class="cart-title">Cart (<span id='cart-count' class="cart-count color-main">${howManyItemsInCart}</span>)</span>
           <button class="close-cart">Remove all</button>
         </div>
         <ul>${cartItems}</ul>

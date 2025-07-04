@@ -22,3 +22,14 @@
   background: rgba(0, 0, 0, 0.6); /* transparent black */
   color: var(--color-black);
 }
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-count {
+  outline: none;
+  border: none;
+  width: 0.6rem;
+  display: inline;
+}
