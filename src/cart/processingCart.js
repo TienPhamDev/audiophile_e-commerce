@@ -4,8 +4,8 @@ const handleCartItem = () => {
   console.log(items);
   items.forEach((item, index) => {
     let quantity = item.quantity;
-    const inputToalPrice = document.getElementById("totalPrice");
-    const quantityInput = document.querySelectorAll("#cart-quantity")[index];
+    const inputToalPrice = document.querySelector(".total-prices");
+    const quantityInput = document.querySelectorAll(".cart-quantity")[index];
     const decreaseButton = document.querySelectorAll("#cart-decrease")[index];
     const increaseButton = document.querySelectorAll("#cart-increase")[index];
     const cartCount = document.getElementById("cart-count");
@@ -18,7 +18,7 @@ const handleCartItem = () => {
         const totalPrice = items.reduce((total, item) => {
           return total + item.price * item.quantity;
         }, 0);
-        inputToalPrice.value = `$${totalPrice.toFixed(2)}`;
+        inputToalPrice.textContent = `$${totalPrice.toFixed(2)}`;
         const howManyItemsInCart = items.reduce(
           (total, item) => total + item.quantity,
           0
@@ -35,7 +35,7 @@ const handleCartItem = () => {
         const totalPrice = currentCart.reduce((total, item) => {
           return total + item.price * item.quantity;
         }, 0);
-        inputToalPrice.value = `$${totalPrice.toFixed(2)}`;
+        inputToalPrice.textContent = `$${totalPrice.toFixed(2)}`;
         const howManyItemsInCart = currentCart.reduce(
           (total, item) => total + item.quantity,
           0
@@ -62,7 +62,7 @@ const handleCartItem = () => {
         const totalPrice = items.reduce((total, item) => {
           return total + item.price * item.quantity;
         }, 0);
-        inputToalPrice.value = `$${totalPrice.toFixed(2)}`;
+        inputToalPrice.textContent = `$${totalPrice.toFixed(2)}`;
         const howManyItemsInCart = items.reduce(
           (total, item) => total + item.quantity,
           0
@@ -79,6 +79,16 @@ const processingCart = () => {
 
   console.log(cart);
 
+  document.body.addEventListener("click", (event) => {
+    if (event.target.classList.contains("cart-overlay")) {
+      const cartOverlay = document.querySelector(".cart-overlay");
+      if (cartOverlay) {
+        cartOverlay.remove();
+        document.body.style.overflow = "auto";
+        document.location.reload();
+      }
+    }
+  });
   cartButtonElement.addEventListener("click", () => {
     if (cart.length > 0) {
       const processingCart = cart.reduce((acc, item) => {
@@ -101,10 +111,16 @@ const processingCart = () => {
       const processingCartItems = JSON.parse(localStorage.getItem("cart"));
       const cartItems = processingCartItems
         .map((item) => {
-          return `<li>${item.name} - $${item.price} - 
+          const imageSrc = `.${item.image.desktop}`;
+
+          return `<li>
+              <div class="cart-item-image-div">
+                <img src="${imageSrc}" alt="${item.name}" class="cart-item-image">
+              </div>
+                <div class="cart-item-text-div"><span>${item.name}</span> <span>$ ${item.price}</span></div>
                 <div class="quantity-buttons">
                   <button class="" id="cart-decrease">&minus;</button>
-                  <input type="number" id="cart-quantity" disabled name="quantity" min="1" max="10" value=${item.quantity}>
+                  <input type="number" class="cart-quantity" disabled name="quantity" min="1" max="10" value=${item.quantity}>
                   <button class="" id="cart-increase">&plus;</button>
                 </div>
               </li>`;
@@ -127,9 +143,9 @@ const processingCart = () => {
           <button class="close-cart">Remove all</button>
         </div>
         <ul>${cartItems}</ul>
-        <p>Total: <input type='text' id='totalPrice' disabled value=$${totalPrice.toFixed(
+        <div class="total-div"><span>TOTAL</span><span class="total-prices">$ ${totalPrice.toFixed(
           2
-        )}></p>
+        )}</span></div>
         <button id="checkout-button" class="button-1">Checkout</button>
       `;
       const cartModal = document.createElement("div");
@@ -142,6 +158,12 @@ const processingCart = () => {
 
       const header = document.getElementsByTagName("header")[0];
       header.appendChild(cartOverlay);
+
+      const heroSectionText = document.querySelector(".hero-text");
+      const isHomePage = document.location.pathname === "/";
+      if (isHomePage) {
+        heroSectionText.style.zIndex = "0";
+      }
 
       document.body.style.overflow = "hidden";
       handleCartItem();

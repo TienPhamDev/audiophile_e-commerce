@@ -178,6 +178,11 @@ const addToCart = (slug) => {
       name: product.name,
       price: product.price,
       quantity: quantity,
+      image: {
+        desktop: product.image.desktop,
+        tablet: product.image.tablet,
+        mobile: product.image.mobile,
+      },
     });
     // Save the updated cart to localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
