@@ -6,8 +6,14 @@ import imgSpeakerZX9 from "../assets/home/desktop/image-speaker-zx9.png";
 import imgSpeakerZX7 from "../assets/home/desktop/image-speaker-zx7.jpg";
 import imgEarphoneYX1 from "../assets/home/desktop/image-earphones-yx1.jpg";
 import imgAbout from "../assets/shared/desktop/image-best-gear.jpg";
-import imgHero from "../assets/home/desktop/image-hero.jpg";
+
+import processingCart from "../cart/processingCart";
 const Home = () => {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const howManyItemsInCart = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
   const content = `
   <div class="container">
     <header class="header-homepage">
@@ -19,14 +25,17 @@ const Home = () => {
           <li><a href="/speakers">Speakers</a></li>
           <li><a href="/earphones">Earphones</a></li>
         </ul>
-        <svg width="23" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M8.625 15.833c1.132 0 2.054.935 2.054 2.084 0 1.148-.922 2.083-2.054 2.083-1.132 0-2.054-.935-2.054-2.083 0-1.15.922-2.084 2.054-2.084zm9.857 0c1.132 0 2.054.935 2.054 2.084 0 1.148-.922 2.083-2.054 2.083-1.132 0-2.053-.935-2.053-2.083 0-1.15.92-2.084 2.053-2.084zm-9.857 1.39a.69.69 0 00-.685.694.69.69 0 00.685.694.69.69 0 00.685-.694.69.69 0 00-.685-.695zm9.857 0a.69.69 0 00-.684.694.69.69 0 00.684.694.69.69 0 00.685-.694.69.69 0 00-.685-.695zM4.717 0c.316 0 .59.215.658.517l.481 2.122h16.47a.68.68 0 01.538.262c.127.166.168.38.11.579l-2.695 9.236a.672.672 0 01-.648.478H7.41a.667.667 0 00-.673.66c0 .364.303.66.674.66h12.219c.372 0 .674.295.674.66 0 .364-.302.66-.674.66H7.412c-1.115 0-2.021-.889-2.021-1.98 0-.812.502-1.511 1.218-1.816L4.176 1.32H.674A.667.667 0 010 .66C0 .296.302 0 .674 0zm16.716 3.958H6.156l1.797 7.917h11.17l2.31-7.917z" fill="#FFF" fill-rule="nonzero"/></svg>
-      </nav>
+        <button id='cart-button' class="cart-button">
+          <svg width="23" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M8.625 15.833c1.132 0 2.054.935 2.054 2.084 0 1.148-.922 2.083-2.054 2.083-1.132 0-2.054-.935-2.054-2.083 0-1.15.922-2.084 2.054-2.084zm9.857 0c1.132 0 2.054.935 2.054 2.084 0 1.148-.922 2.083-2.054 2.083-1.132 0-2.053-.935-2.053-2.083 0-1.15.92-2.084 2.053-2.084zm-9.857 1.39a.69.69 0 00-.685.694.69.69 0 00.685.694.69.69 0 00.685-.694.69.69 0 00-.685-.695zm9.857 0a.69.69 0 00-.684.694.69.69 0 00.684.694.69.69 0 00.685-.694.69.69 0 00-.685-.695zM4.717 0c.316 0 .59.215.658.517l.481 2.122h16.47a.68.68 0 01.538.262c.127.166.168.38.11.579l-2.695 9.236a.672.672 0 01-.648.478H7.41a.667.667 0 00-.673.66c0 .364.303.66.674.66h12.219c.372 0 .674.295.674.66 0 .364-.302.66-.674.66H7.412c-1.115 0-2.021-.889-2.021-1.98 0-.812.502-1.511 1.218-1.816L4.176 1.32H.674A.667.667 0 010 .66C0 .296.302 0 .674 0zm16.716 3.958H6.156l1.797 7.917h11.17l2.31-7.917z" fill="#FFF" fill-rule="nonzero"/></svg>
+          <span class="cart-count color-main">(${howManyItemsInCart})</span>
+        </button>
+        </nav>
       <section class="hero">
         <div class="hero-text">
           <span class="overline">NEW PRODUCT</span>
           <h2>XX99 Mark II<br>Headphones</h2>
           <p>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
-          <a href="/headphones/xx99-mark-two" class="button-1">See Product</a>
+          <a href="/headphones/xx99-mark-two-headphones" class="button-1">See Product</a>
         </div>
       </section>
     </header>
@@ -35,17 +44,17 @@ const Home = () => {
         <div class="category-item">
           <img src=${imgThumbnailHeadphone} alt="Headphones">
           <h3>HEADPHONES</h3>
-          <a href="/headphones/xx99-mark-one" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
+          <a href="/headphones" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
         </div>
         <div class="category-item">
           <img src=${imgThumbnailSpeaker} alt="Speakers">
           <h3>SPEAKERS</h3>
-          <a href="/headphones/xx59" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
+          <a href="/speakers" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
         </div>
         <div class="category-item">
           <img src=${imgThumbnailEarphone} alt="Speaker">
           <h3>EARPHONES</h3>
-          <a href="/speakers/zx9-speaker" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
+          <a href="/earphones" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
         </div>
       </section>
       <section class="products-homepage">
@@ -106,5 +115,7 @@ const Home = () => {
 
   return content;
 };
-
-export default Home;
+const initFuncHome = () => {
+  processingCart();
+};
+export { Home, initFuncHome };
