@@ -1,0 +1,6 @@
+.header-checkout {
+  justify-self: stretch;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 0 2rem;
+}

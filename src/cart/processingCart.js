@@ -170,9 +170,13 @@ const processingCart = () => {
 
       const checkoutButton = document.getElementById("checkout-button");
       checkoutButton.addEventListener("click", () => {
-        alert("Proceeding to checkout...");
-
-        // Here you can implement the checkout logic
+        const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (currentCart.length > 0) {
+          localStorage.setItem("checkout", JSON.stringify(currentCart));
+          document.location.href = "/checkout";
+        } else {
+          alert("Your cart is empty");
+        }
       });
       const closeCartButton = document.querySelector(".close-cart");
       closeCartButton.addEventListener("click", () => {
