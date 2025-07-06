@@ -1,11 +1,11 @@
-import { Home, initFuncHome } from "./routes/home";
-import { Headphones, initFuncHeadphones } from "./routes/Headphones";
-import { Speakers, initFuncSpeakers } from "./routes/Speakers";
-import { Earphones, initFuncEarphones } from "./routes/Earphones";
+import { Home, initFuncHome } from "./screens/home";
+import { Headphones, initFuncHeadphones } from "./screens/Headphones";
+import { Speakers, initFuncSpeakers } from "./screens/Speakers";
+import { Earphones, initFuncEarphones } from "./screens/Earphones";
 import {
   ProductDetails,
   initFuncProductDetails,
-} from "./routes/ProductDetails";
+} from "./screens/ProductDetails";
 
 // Initialize the cart in localStorage
 // If the cart is not already initialized, set it to an empty array
