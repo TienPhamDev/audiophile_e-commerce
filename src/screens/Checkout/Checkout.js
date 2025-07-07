@@ -2,7 +2,7 @@ import imgThumbnailHeadphone from "../../assets/shared/desktop/image-category-th
 import imgThumbnailSpeaker from "../../assets/shared/desktop/image-category-thumbnail-speakers.png";
 import imgThumbnailEarphone from "../../assets/shared/desktop/image-category-thumbnail-earphones.png";
 import imgAbout from "../../assets/shared/desktop/image-best-gear.jpg";
-
+import processingCart from "../../cart/processingCart";
 import "../../style.css";
 import "./checkout.css";
 
@@ -112,31 +112,31 @@ const Checkout = () => {
                         <img src="${imageSrc}" alt="${item.name}" class="checkout-item-image">
                       </div>
                       <div class="checkout-item-text-div">
-                        <span>${item.name}</span>
-                        <span>$ ${item.price}</span>
+                        <span class='font-weight-bold'>${item.name}</span>
+                        <span class='color-gray'>$ ${item.price}</span>
                       </div>
                       <div class="checkout-item-quantity-div">
-                        <span>Qty: ${item.quantity}</span>
+                        <span>&times;${item.quantity}</span>
                       </div>
                     </li>`;
                   })
                   .join("")}
               </ul>
               <div class="checkout-total">
-                <span>Total</span>
-                <span class="checkout-total-price">$ ${totalPrice}</span>
+                <span class="color-gray">Total</span>
+                <span class="checkout-total-price font-weight-bold">$ ${totalPrice}</span>
               </div>
               <div class="checkout-shipping">
-                <span>Shipping</span>
-                <span class="checkout-shipping-price">$ ${checkoutShipping}</span>
+                <span class="color-gray">Shipping</span>
+                <span class="checkout-shipping-price font-weight-bold">$ ${checkoutShipping}</span>
               </div>
               <div class='checkout-vat'>
-                <span>VAT (Included)</span>
-                <span class="checkout-vat-price">$ ${vatPrice}</span>
+                <span class="color-gray">VAT (Included)</span>
+                <span class="checkout-vat-price font-weight-bold">$ ${vatPrice}</span>
               </div>
               <div class="checkout-grand-total">
-                <span>Grand Total</span>
-                <span class="checkout-grand-total-price">$ ${checkoutGrandTotal}</span>
+                <span class="color-gray">Grand Total</span>
+                <span class="checkout-grand-total-price color-main">$ ${checkoutGrandTotal}</span>
               </div>
               <button type="submit" class="button-1">Continue & Pay</button>
             </div>
@@ -165,5 +165,7 @@ const Checkout = () => {
   `;
   return content;
 };
-const initFuncCheckout = () => {};
+const initFuncCheckout = () => {
+  processingCart();
+};
 export { Checkout, initFuncCheckout };
