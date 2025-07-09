@@ -65,14 +65,14 @@ const Home = () => {
           <div class="product-1st-item-text">
             <h3>zX9 <br>SPEAKER</h3>
             <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-            <a href="/headphones/xx99-mark-one" class="button-3">See Product</a>
+            <a href="/speakers/zx9-speaker" class="button-3">See Product</a>
           </div>        
         </div>
         <div class="product-2nd-item">
           <img src=${imgSpeakerZX7} alt="zx7 speaker">
           <div class="product-2nd-item-text">
             <h3>ZX7 SPEAKER</h3>
-            <a href="/headphones/xx59" class="button-2">See Product</a>
+            <a href="/speakers/zx7-speaker" class="button-2">See Product</a>
           </div>
         </div>
         <div class="product-3rd-item">
