@@ -165,7 +165,8 @@ const processingCart = () => {
         heroSectionText.style.zIndex = "0";
       }
 
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
+
       handleCartItem();
 
       const checkoutButton = document.getElementById("checkout-button");

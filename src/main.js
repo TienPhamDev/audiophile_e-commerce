@@ -7,6 +7,7 @@ import {
   initFuncProductDetails,
 } from "./screens/ProductDetails";
 import { Checkout, initFuncCheckout } from "./screens/Checkout/Checkout";
+import { initFuncContact, Contact } from "./screens/Contact/Contact";
 // Initialize the cart in localStorage
 // If the cart is not already initialized, set it to an empty array
 if (!localStorage.getItem("cart")) {
@@ -20,6 +21,7 @@ const routes = {
   "/speakers": Speakers,
   "/earphones": Earphones,
   "/checkout": Checkout,
+  "/contact": Contact,
   // Add more routes as needed
 };
 
@@ -68,6 +70,9 @@ const router = () => {
   }
   if (route === Checkout) {
     initFuncCheckout();
+  }
+  if (route === Contact) {
+    initFuncContact();
   }
 };
 
