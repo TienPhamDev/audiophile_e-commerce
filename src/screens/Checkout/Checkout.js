@@ -1,7 +1,4 @@
-import imgThumbnailHeadphone from "../../assets/shared/desktop/image-category-thumbnail-headphones.png";
-import imgThumbnailSpeaker from "../../assets/shared/desktop/image-category-thumbnail-speakers.png";
-import imgThumbnailEarphone from "../../assets/shared/desktop/image-category-thumbnail-earphones.png";
-import imgAbout from "../../assets/shared/desktop/image-best-gear.jpg";
+
 import processingCart from "../../cart/processingCart";
 import "../../style.css";
 import "./checkout.css";
@@ -165,7 +162,40 @@ const Checkout = () => {
   `;
   return content;
 };
+const handleCheckoutFormSubmit = () => {
+  const checkout = JSON.parse(localStorage.getItem("checkout")) || [];
+  const form = document.getElementById("checkout-form");
+  
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const checkoutModal = document.createElement("div");
+    checkoutModal.classList.add("checkout-modal");
+    checkoutModal.innerHTML = `
+      <div class="checkout-modal-content">
+        <svg width="64" height="64" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#D87D4A" cx="32" cy="32" r="32"/><path stroke="#FFF" stroke-width="4" d="m20.754 33.333 6.751 6.751 15.804-15.803"/></g></svg>
+        <h2>Thank you for your order!</h2>
+        <p>Your order has been successfully placed.</p>
+        <p>Order Summary:</p>
+        <ul>
+          ${checkout
+            .map((item) => {
+              const imageSrc = `.${item.image.desktop}`;
+              const itemImage = `<img src="${imageSrc}" alt="${item.name}" class="checkout-item-image">`;
+              return `<li>${itemImage} ${item.name} - Quantity: ${item.quantity}, Price: $${item.price.toFixed(2)}</li>`;
+            })
+            .join("")}
+        </ul>
+        <p>Total Price: $${checkout
+          .reduce((total, item) => total + item.price * item.quantity, 0)
+          .toFixed(2)}</p>
+        <button id="close-modal" class="button-1">Go Back To Home</button>
+      </div>
+    `;
+    document.body.appendChild(checkoutModal);
+  });
+};
 const initFuncCheckout = () => {
   processingCart();
+  handleCheckoutFormSubmit();
 };
 export { Checkout, initFuncCheckout };
