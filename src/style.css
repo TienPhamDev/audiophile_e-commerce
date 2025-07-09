@@ -23,6 +23,8 @@ body {
   background-color: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  scroll-behavior: auto;
 }
 
 img,
@@ -624,10 +626,12 @@ footer p {
   padding: 1rem;
   font-weight: bold;
   text-align: center;
-  width: 4rem;
-  height: 4rem;
+  width: 4.8rem;
+  height: 4.8rem;
 }
-
+#quantity {
+  padding: 0.4rem;
+}
 .product-details-gallery {
   grid-column: 1/3;
 }
