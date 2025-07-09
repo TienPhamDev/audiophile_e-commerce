@@ -1,0 +1,12 @@
+.contact{
+    padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+.contact-form{
+    padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
