@@ -210,3 +210,8 @@
   border-top: 1px solid #ddd;
   text-align: center;
 }
+@media (min-width: 1224px) {
+  .header-checkout{
+    padding: 0 20%;
+  }
+}
