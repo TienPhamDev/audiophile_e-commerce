@@ -83,3 +83,8 @@
 .cart-quantity{
   padding:0.1rem;
 }
+@media (min-width:1224px) {
+  .cart-modal{
+    right: 16%;
+  }
+}

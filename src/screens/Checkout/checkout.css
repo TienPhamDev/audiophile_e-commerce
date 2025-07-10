@@ -214,4 +214,7 @@
   .header-checkout{
     padding: 0 20%;
   }
+  .checkout{
+    padding: 5% 0;
+  }
 }

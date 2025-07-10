@@ -33,26 +33,22 @@ const Contact = () => {
           <h1>Contact Us</h1>
           <p>We'd love to hear from you! Whether you have a question about our products, need assistance with an order, or just want to share your feedback, feel free to reach out to us.</p>
           <form id="contact-form" class="contact-form" >
-            <div class="contact-form-group">
+            
               <label for="name">Name</label>
               <input type="text" id="name" name="name" required placeholder="Your Name">
-            </div>
-            <div class="contact-form-group">
+            
               <label for="company">Company</label>
               <input type="text" id="company" name="company" placeholder="Your Company (optional)">
-            </div>
-            <div class="contact-form-group">
+            
               <label for="email">Email</label>
               <input type="email" id="email" name="email" required placeholder="Your Email">
-            </div>
-            <div class="contact-form-group">
+            
               <label for="phone">Phone</label>
               <input type="text" id="phone" name="phone" required placeholder="Your Phone Number">
-            </div>
-            <div class="contact-form-group">
+            
               <label for="message">Message</label>
               <textarea id="message" name="message" required placeholder="Your Message"></textarea>
-            </div>
+            
             <button type="submit" class="button-1">Send Message</button>
           </form>
         </section>

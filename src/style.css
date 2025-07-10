@@ -9,7 +9,9 @@
   margin: 0;
   padding: 0;
 }
-
+.hidden{
+  display: none;
+}
 html {
   font-size: 62.5%; /* 1rem = 10px */
   scroll-behavior: smooth;
@@ -689,4 +691,7 @@ footer p {
   footer::before{
     left: 15%;
   }
+}
+@media (max-width:769px) and (min-width:568px) {
+  
 }
