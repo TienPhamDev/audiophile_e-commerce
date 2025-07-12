@@ -708,6 +708,9 @@ footer p {
     height: 40rem;
     display: flex;
     align-items: start;
+
+    border-bottom-right-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
   }
   .overlay-menu {
     position: fixed;
