@@ -15,7 +15,6 @@ const Contact = () => {
     0
   );
 
-
   const screenWidth = window.innerWidth;
   const isTablet = screenWidth <= 768;
   const isDesktop = screenWidth > 768;
@@ -54,6 +53,9 @@ const Contact = () => {
             <img src=${imgThumbnailEarphone} alt="Speaker">
             <h3>EARPHONES</h3>
             <a href="/earphones" class="btn-secondary"><span>SHOP</span> <span class="color-main"><svg width="8" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></span></a>
+          </li>
+          <li class="menu-contact">
+            <a href="/contact" class="button-2">Contact</a>
           </li>
         </ul>
         <button id='cart-button' class="cart-button">

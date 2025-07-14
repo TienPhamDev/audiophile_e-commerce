@@ -5,6 +5,10 @@ const HandleMenuButton = () => {
   const menuTablet = document.getElementById("menu-tablet");
   const overlay = document.querySelector(".overlay-menu");
 
+  const screenWidth = window.innerWidth;
+  const isTablet = screenWidth <= 768;
+  const isDesktop = screenWidth > 768;
+  const isMobile = screenWidth <= 425;
   const funcHideMenu = () => {
     svgClose.classList.toggle("hidden");
     svgOpen.classList.toggle("hidden");
@@ -18,7 +22,7 @@ const HandleMenuButton = () => {
     svgClose.classList.toggle("hidden");
     svgOpen.classList.toggle("hidden");
     menuTablet.classList.toggle("hidden");
-    if (menuTablet.classList.contains("hidden")) {
+    if (menuTablet.classList.contains("hidden") && !isMobile) {
       menuTablet.style.transform = "translateY(130%)";
       menuTablet.style.transition = "transform 0.3s ease";
       overlay.style.display = "block";
@@ -29,7 +33,14 @@ const HandleMenuButton = () => {
       overlay.style.display = "none";
       document.body.style.overflowY = "auto";
     }
-
+    // if (
+    //   isMobile &&
+    //   !isDesktop &&
+    //   !isTablet &&
+    //   !menuTablet.classList.contains("hidden")
+    // ) {
+    //   menuTablet.style.transform = "translateY(130%)";
+    // }
     // menuTablet.style.transform = "translateY(130%)";
     // menuTablet.style.transition = "transform 0.3s ease";
     // hero.style.filter = "blur(3px)";
@@ -41,10 +52,11 @@ const HandleMenuButton = () => {
       funcHideMenu();
     }
   });
+
   // Close the menu when clicking on cart button
   const cartButton = document.getElementById("cart-button");
   cartButton.addEventListener("click", () => {
-    if (menuTablet.classList.contains("hidden")) {
+    if (menuTablet.classList.contains("hidden") && !isDesktop) {
       funcHideMenu();
     }
   });
