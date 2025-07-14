@@ -22,7 +22,7 @@ const HandleMenuButton = () => {
     svgClose.classList.toggle("hidden");
     svgOpen.classList.toggle("hidden");
     menuTablet.classList.toggle("hidden");
-    if (menuTablet.classList.contains("hidden") && !isMobile) {
+    if (menuTablet.classList.contains("hidden")) {
       menuTablet.style.transform = "translateY(130%)";
       menuTablet.style.transition = "transform 0.3s ease";
       overlay.style.display = "block";

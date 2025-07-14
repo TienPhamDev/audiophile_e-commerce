@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-right: 1.6rem;
 }
 .cart-modal {
   position: absolute;
@@ -80,11 +81,11 @@
   width: 6.4rem;
   height: 6.4rem;
 }
-.cart-quantity{
-  padding:0.1rem;
+.cart-quantity {
+  padding: 0.1rem;
 }
-@media (min-width:1224px) {
-  .cart-modal{
+@media (min-width: 1224px) {
+  .cart-modal {
     right: 16%;
   }
 }
