@@ -2,11 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-right: 1.6rem;
+  margin-right: 1rem;
 }
 .cart-modal {
   position: absolute;
-  top: 15%;
+  top: 7%;
   right: 2%;
   z-index: 12;
   width: 52rem;
@@ -87,5 +87,16 @@
 @media (min-width: 1224px) {
   .cart-modal {
     right: 16%;
+  }
+}
+@media (max-width: 431px) {
+  .cart-modal {
+    width: 40rem;
+    right: 3%;
+    top: 8%;
+    padding: 1.4rem;
+  }
+  .cart-item-text-div span:first-child {
+    font-size: 1.4rem;
   }
 }
