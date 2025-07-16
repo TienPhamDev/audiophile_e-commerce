@@ -112,9 +112,39 @@ const Contact = () => {
   `;
   return content;
 };
+const handleContactFormSubmit = () => {
+  const form = document.getElementById("contact-form");
+  const formData = new FormData(form);
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const contactModal = document.createElement("div");
+    contactModal.className = "contact-modal";
+    contactModal.innerHTML = `
+      <div class="contact-modal-content">
+        <h2>Thank you for contacting us!</h2>
+        <p>We have received your message and will get back to you shortly.</p>
+        <button id="close-modal" class="button-1">Close</button>
+      </div>
+    `;
+    const modalOverlay = document.createElement("div");
+    modalOverlay.className = "contact-modal-overlay";
+    modalOverlay.appendChild(contactModal);
+    const main = document.getElementsByTagName("main")[0];
+    main.appendChild(modalOverlay);
+    document.body.style.overflow = "hidden";
+
+    const closeModalButton = document.getElementById("close-modal");
+    closeModalButton.addEventListener("click", () => {
+      modalOverlay.remove();
+      form.reset();
+      document.location.href = "/";
+    });
+  });
+};
 const initFuncContact = () => {
   handleDetectScreenChange();
   HandleMenuButton();
+  handleContactFormSubmit();
   processingCart();
 };
 export { Contact, initFuncContact };

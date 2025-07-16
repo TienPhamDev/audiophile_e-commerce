@@ -77,8 +77,6 @@ const processingCart = () => {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const cartButtonElement = document.getElementById("cart-button");
 
-  console.log(cart);
-
   document.body.addEventListener("click", (event) => {
     if (event.target.classList.contains("cart-overlay")) {
       const cartOverlay = document.querySelector(".cart-overlay");
@@ -175,8 +173,6 @@ const processingCart = () => {
         if (currentCart.length > 0) {
           localStorage.setItem("checkout", JSON.stringify(currentCart));
           document.location.href = "/checkout";
-        } else {
-          alert("Your cart is empty");
         }
       });
       const closeCartButton = document.querySelector(".close-cart");
@@ -184,8 +180,6 @@ const processingCart = () => {
         localStorage.removeItem("cart");
         document.location.reload();
       });
-    } else {
-      alert("Your cart is empty");
     }
   });
 };

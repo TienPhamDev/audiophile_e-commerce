@@ -25,6 +25,7 @@ const Speakers = () => {
   const screenWidth = window.innerWidth;
   const isTablet = screenWidth <= 768;
   const isDesktop = screenWidth > 768;
+  const isMobile = screenWidth <= 431;
   const content = `
     <div class="container">
       <header class="header-categories">
@@ -93,7 +94,7 @@ const Speakers = () => {
           </div>
           ${allProductData
             .map((item, index) => {
-              if (index % 2 === 0) {
+              if (index % 2 === 0 && !isMobile) {
                 return `
                 <div class="product-item">
                   <div class="product-info">

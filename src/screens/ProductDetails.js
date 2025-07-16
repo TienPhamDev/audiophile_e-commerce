@@ -210,7 +210,7 @@ const addToCart = (slug) => {
 
   addToCartButton.addEventListener("click", () => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    alert(`${quantity} ${slug} added to cart`);
+
     cart.push({
       slug: slug,
       name: product.name,
