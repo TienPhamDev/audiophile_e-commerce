@@ -226,7 +226,7 @@ const addToCart = (slug) => {
     // Save the updated cart to localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    document.location.reload();
+    window.location.replace(window.location.href);
   });
 };
 
