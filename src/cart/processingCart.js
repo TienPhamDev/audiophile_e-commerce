@@ -173,6 +173,7 @@ const processingCart = () => {
         if (currentCart.length > 0) {
           localStorage.setItem("checkout", JSON.stringify(currentCart));
           document.location.href = "/checkout";
+          document.body.setAttribute("data-link", "checkout");
         }
       });
       const closeCartButton = document.querySelector(".close-cart");
