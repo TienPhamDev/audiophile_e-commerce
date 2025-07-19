@@ -84,7 +84,10 @@
     padding: 0 15%;
   }
 }
-@media (max-width: 769px) {
+@media (max-width: 768px) {
+  .overlay-menu {
+    height: 95vh !important;
+  }
   .contact-form {
     grid-template-columns: 1fr;
     gap: 1.4rem;
