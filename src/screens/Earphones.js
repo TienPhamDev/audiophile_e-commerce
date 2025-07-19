@@ -89,7 +89,7 @@ const Earphones = () => {
                   <p>${newProductData.description}</p>
                   <a href="/headphones/${
                     newProductData.slug
-                  }" class="button-1">SEE PRODUCT</a>
+                  }" data-link class="button-1">SEE PRODUCT</a>
                 </div>
           </div>
           ${allProductData
