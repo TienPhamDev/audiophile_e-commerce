@@ -33,7 +33,7 @@ const navigateTo = (path) => {
 const router = () => {
   // Check if the current path is a product details page
   const path = window.location.pathname;
-  console.log("Current path:", path);
+
   // dynamic routing
   // Check if the path includes product categories
   // and extract the slug for product details
@@ -84,7 +84,6 @@ window.addEventListener("popstate", router);
 window.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", (e) => {
     if (e.target.matches("[data-link]")) {
-      console.log(e.target.matches("[data-link]"));
       e.preventDefault();
       const path = e.target.href;
       navigateTo(path);

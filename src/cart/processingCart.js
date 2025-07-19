@@ -1,3 +1,4 @@
+import URL from "../screens/URL";
 import "./cart.css";
 const handleCartItem = () => {
   const items = JSON.parse(localStorage.getItem("cart")) || [];
@@ -172,9 +173,11 @@ const processingCart = () => {
         const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
         if (currentCart.length > 0) {
           localStorage.setItem("checkout", JSON.stringify(currentCart));
-          document.location.href = "/checkout";
-          window.location.href = "/checkout";
-          window.location.replace(window.location.href);
+          const checkoutUrl = `${URL}/checkout`;
+          // Redirect to the checkout page
+          window.location.href = checkoutUrl;
+          console.log(checkoutUrl);
+          // window.location.replace(checkoutUrl);
         }
       });
       const closeCartButton = document.querySelector(".close-cart");
