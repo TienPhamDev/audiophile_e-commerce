@@ -1,5 +1,5 @@
 const URL =
-  // "https://audiophile-4396a.web.app" ||
-  // "https://audiophile-4396a.firebaseapp.com" ||
-  "http://localhost:5173";
+  "https://audiophile-4396a.web.app" ||
+  "https://audiophile-4396a.firebaseapp.com";
+
 export default URL;
