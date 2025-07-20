@@ -727,7 +727,7 @@ footer p {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 92vh !important;
+    height: 92vh;
     background-color: rgb(16, 16, 16, 0.9);
     z-index: 99998;
     display: none;
@@ -768,7 +768,7 @@ footer p {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 95vh;
+    height: 92vh !important;
     background-color: rgb(16, 16, 16, 0.9);
     z-index: 99998;
     display: none;
@@ -1062,13 +1062,13 @@ footer p {
     justify-content: start;
     position: absolute;
     width: 100%;
-    height: 70vh;
+    height: 60rem;
     gap: 1rem;
-    top: -1200%;
+    top: -60rem;
     left: 0;
   }
   .overlay-menu {
-    height: 95vh !important;
+    height: 90vh !important;
   }
   .menu > li {
     width: 100%;
@@ -1202,7 +1202,7 @@ footer p {
     transform: translateX(-50%);
   }
 }
-@media (max-width: 391px) {
+/* @media (max-width: 391px) {
   .menu {
     display: flex;
     flex-direction: column;
@@ -1215,18 +1215,14 @@ footer p {
     top: -1170%;
     left: 0;
   }
-}
-@media (max-width: 415px) and (min-width: 392px) {
+} */
+/* @media (max-width: 415px) and (min-width: 392px) {
   .menu {
     top: -1150%;
   }
-}
-@media (max-width: 376px) {
-  .menu {
-    height: 70vh;
-    top: -840%;
-    padding: 1rem;
-  }
+} */
+/* @media (max-width: 376px) {
+  
   .menu > li > img {
     width: 20%;
     height: 3rem;
@@ -1235,6 +1231,11 @@ footer p {
     font-size: 1.2rem;
   }
   .overlay-menu {
-    height: 90vh;
+    height: 85vh !important;
+  }
+} */
+@media (max-width: 431px) {
+  .overlay-menu {
+    height: 92vh !important;
   }
 }

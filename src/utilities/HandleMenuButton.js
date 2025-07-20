@@ -8,7 +8,7 @@ const HandleMenuButton = () => {
   const screenWidth = window.innerWidth;
   const isTablet = screenWidth <= 768;
   const isDesktop = screenWidth > 768;
-  const isMobile = screenWidth <= 425;
+  const isMobile = screenWidth <= 431;
   const funcHideMenu = () => {
     svgClose.classList.toggle("hidden");
     svgOpen.classList.toggle("hidden");
@@ -23,7 +23,13 @@ const HandleMenuButton = () => {
     svgOpen.classList.toggle("hidden");
     menuTablet.classList.toggle("hidden");
     if (menuTablet.classList.contains("hidden")) {
-      menuTablet.style.transform = "translateY(130%)";
+      if (isMobile) {
+        menuTablet.style.transform = "translateY(110%)";
+      }
+      if (isTablet && !isMobile) {
+        menuTablet.style.transform = "translateY(130%)";
+      }
+
       menuTablet.style.transition = "transform 0.3s ease";
       overlay.style.display = "block";
       document.body.style.overflowY = "hidden";
