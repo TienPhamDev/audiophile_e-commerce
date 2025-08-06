@@ -89,6 +89,7 @@
     grid-template-columns: 1fr;
     gap: 1.4rem;
   }
+
   .contact-form > button {
     grid-column-start: 1;
     grid-column-end: -1;
