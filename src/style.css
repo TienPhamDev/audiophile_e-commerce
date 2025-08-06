@@ -1067,9 +1067,7 @@ footer p {
     top: -60rem;
     left: 0;
   }
-  .overlay-menu {
-    height: 90vh !important;
-  }
+
   .menu > li {
     width: 100%;
     height: auto;
@@ -1236,6 +1234,6 @@ footer p {
 } */
 @media (max-width: 431px) {
   .overlay-menu {
-    height: 92vh !important;
+    height: 93vh !important;
   }
 }
