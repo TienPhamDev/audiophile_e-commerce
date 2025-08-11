@@ -33,6 +33,7 @@ const navigateTo = (path) => {
 const router = () => {
   // Check if the current path is a product details page
   const path = window.location.pathname;
+
   // dynamic routing
   // Check if the path includes product categories
   // and extract the slug for product details
