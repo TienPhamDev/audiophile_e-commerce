@@ -12,6 +12,7 @@ import {
   AllProducts,
   initFuncAllProducts,
 } from "./screens/AllProducts/AllProducts";
+import { initFuncCart, Cart } from "./screens/Cart/Cart";
 // Initialize the cart in localStorage
 // If the cart is not already initialized, set it to an empty array
 if (!localStorage.getItem("cart")) {
@@ -27,6 +28,7 @@ const routes = {
   "/checkout": Checkout,
   "/contact": Contact,
   "/allproducts": AllProducts,
+  "/cart": Cart,
   // Add more routes as needed
 };
 
@@ -82,6 +84,9 @@ const router = () => {
   }
   if (route === AllProducts) {
     initFuncAllProducts();
+  }
+  if (route === Cart) {
+    initFuncCart();
   }
 };
 
