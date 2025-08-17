@@ -16,8 +16,6 @@ const Cart = () => {
     0
   );
 
-  const dataProducts = data;
-
   const imgAbout = window.innerWidth > 768 ? imgAboutDesktop : imgAboutTablet;
   const screenWidth = window.innerWidth;
   const isTablet = screenWidth <= 768;
@@ -64,34 +62,6 @@ const Cart = () => {
   //   (total, item) => total + item.quantity,
   //   0
   // );
-  // Create cart modal
-  const cartModal = document.createElement("div");
-  cartModal.className = "cart-modal";
-  cartModal.innerHTML = cartContent;
-  const cartOverlay = document.createElement("div");
-  cartOverlay.className = "cart-overlay";
-  cartOverlay.appendChild(cartModal);
-  const header = document.getElementsByTagName("header")[0];
-  header.appendChild(cartOverlay);
-  const heroSectionText = document.querySelector(".hero-text");
-  const isHomePage = document.location.pathname === "/";
-  if (isHomePage) {
-    heroSectionText.style.zIndex = "0";
-  }
-  document.body.style.overflowY = "hidden";
-  handleCartItem();
-  const checkoutButton = document.getElementById("checkout-button");
-  checkoutButton.addEventListener("click", () => {
-    const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (currentCart.length > 0) {
-      localStorage.setItem("checkout", JSON.stringify(currentCart));
-      const checkoutUrl = `${URL}/checkout`;
-      // Redirect to the checkout page
-      window.location.href = checkoutUrl;
-      console.log(checkoutUrl);
-      // window.location.replace(checkoutUrl);
-    }
-  });
 
   const content = `
     <div class="container">
@@ -181,77 +151,98 @@ const Cart = () => {
 
   return content;
 };
-const handlePriceFilter = () => {
-  const minPriceInput = document.getElementById("min-price");
-  const maxPriceInput = document.getElementById("max-price");
-  const applyFilterButton = document.getElementById("apply-filter");
-  const productsContainer = document.querySelector(".products");
-  const products = Array.from(
-    productsContainer.querySelectorAll(".product-item")
-  );
-  console.log(products);
-  applyFilterButton.addEventListener("click", () => {
-    const minPrice = parseFloat(minPriceInput.value) || 0;
-    const maxPrice = parseFloat(maxPriceInput.value) || Infinity;
-    const filteredProducts = products.filter((product) => {
-      const priceText = parseFloat(
-        product.querySelector("#price").textContent.replace("$", "")
-      );
-      if (isNaN(priceText)) return false; // Skip if price is not a number
+const handleCartItem = () => {
+  const items = JSON.parse(localStorage.getItem("cart")) || [];
+  console.log(items);
+  items.forEach((item, index) => {
+    let quantity = item.quantity;
+    const inputToalPrice = document.querySelector(".total-prices");
+    const quantityInput = document.querySelectorAll(".cart-quantity")[index];
+    const decreaseButton = document.querySelectorAll("#cart-decrease")[index];
+    const increaseButton = document.querySelectorAll("#cart-increase")[index];
+    const cartCount = document.getElementById("cart-count");
+    // quantityInput.value = quantity;
+    decreaseButton.addEventListener("click", () => {
+      document.location.reload();
+      if (quantity >= 1) {
+        quantity--;
+        quantityInput.value = quantity;
+        items[index].quantity = quantity;
+        const totalPrice = items.reduce((total, item) => {
+          return total + item.price * item.quantity;
+        }, 0);
+        inputToalPrice.textContent = `$${totalPrice.toFixed(2)}`;
+        const howManyItemsInCart = items.reduce(
+          (total, item) => total + item.quantity,
+          0
+        );
+        cartCount.textContent = `${howManyItemsInCart}`;
+        localStorage.setItem("cart", JSON.stringify(items));
+      }
+      if (quantity < 1) {
+        items.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(items));
 
-      return priceText >= minPrice && priceText <= maxPrice;
+        const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartModal = document.querySelector(".cart-modal");
+        const totalPrice = currentCart.reduce((total, item) => {
+          return total + item.price * item.quantity;
+        }, 0);
+        inputToalPrice.textContent = `$${totalPrice.toFixed(2)}`;
+        const howManyItemsInCart = currentCart.reduce(
+          (total, item) => total + item.quantity,
+          0
+        );
+        cartCount.textContent = `${howManyItemsInCart}`;
+        if (currentCart.length === 0) {
+          window.location.reload();
+        }
+        // Remove the cart item from the modal
+        if (cartModal) {
+          const cartItem = cartModal.querySelectorAll("li")[index];
+          if (cartItem) {
+            cartItem.remove();
+          }
+        }
+      }
     });
-    productsContainer.innerHTML = "";
-    filteredProducts.forEach((product) =>
-      productsContainer.appendChild(product)
-    );
+    increaseButton.addEventListener("click", () => {
+      if (quantity < 10) {
+        quantity++;
+        quantityInput.value = quantity;
+        items[index].quantity = quantity;
+        localStorage.setItem("cart", JSON.stringify(items));
+        const totalPrice = items.reduce((total, item) => {
+          return total + item.price * item.quantity;
+        }, 0);
+        inputToalPrice.textContent = `$${totalPrice.toFixed(2)}`;
+        const howManyItemsInCart = items.reduce(
+          (total, item) => total + item.quantity,
+          0
+        );
+        cartCount.textContent = `${howManyItemsInCart}`;
+      }
+    });
   });
 };
-const sortProductsByCategories = () => {
-  const sortBy = document.getElementById("sort-by");
-  const productsContainer = document.querySelector(".products");
-  const products = Array.from(
-    productsContainer.querySelectorAll(".product-item")
-  );
 
-  sortBy.addEventListener("change", (event) => {
-    const value = event.target.value;
-    let sortedProducts;
-
-    if (value === "earphone") {
-      sortedProducts = products.filter((product) =>
-        product
-          .querySelector("h2")
-          .textContent.toLowerCase()
-          .includes("earphone")
-      );
-    } else if (value === "speaker") {
-      sortedProducts = products.filter((product) =>
-        product
-          .querySelector("h2")
-          .textContent.toLowerCase()
-          .includes("speaker")
-      );
-    } else if (value === "headphone") {
-      sortedProducts = products.filter((product) =>
-        product
-          .querySelector("h2")
-          .textContent.toLowerCase()
-          .includes("headphone")
-      );
-    } else {
-      sortedProducts = products; // Default case
-    }
-
-    productsContainer.innerHTML = "";
-    sortedProducts.forEach((product) => productsContainer.appendChild(product));
-  });
-};
 const initFuncCart = () => {
-  handlePriceFilter();
-  sortProductsByCategories();
+  handleCartItem();
   handleDetectScreenChange();
   HandleMenuButton();
   processingCart();
+
+  const checkoutButton = document.getElementById("checkout-button");
+  checkoutButton.addEventListener("click", () => {
+    const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (currentCart.length > 0) {
+      localStorage.setItem("checkout", JSON.stringify(currentCart));
+      const checkoutUrl = `${URL}/checkout`;
+      // Redirect to the checkout page
+      window.location.href = checkoutUrl;
+      console.log(checkoutUrl);
+      // window.location.replace(checkoutUrl);
+    }
+  });
 };
 export { Cart, initFuncCart };
