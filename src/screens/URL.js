@@ -1,3 +1,3 @@
-const URL = "https://audiophile-4396a.web.app";
+const URL = "http://localhost:5173";
 
 export default URL;
