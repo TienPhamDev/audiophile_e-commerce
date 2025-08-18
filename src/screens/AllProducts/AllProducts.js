@@ -1,3 +1,5 @@
+// Reload the page only once on first load using sessionStorage
+
 import imgThumbnailHeadphone from "../../assets/shared/desktop/image-category-thumbnail-headphones.png";
 import imgThumbnailSpeaker from "../../assets/shared/desktop/image-category-thumbnail-speakers.png";
 import imgThumbnailEarphone from "../../assets/shared/desktop/image-category-thumbnail-earphones.png";
@@ -11,6 +13,13 @@ import handleDetectScreenChange from "../../utilities/HandleDetectScreenChange";
 import HandleMenuButton from "../../utilities/HandleMenuButton";
 import URL from "../URL";
 const AllProducts = () => {
+  if (
+    typeof window !== "undefined" &&
+    !sessionStorage.getItem("allProductsReloaded")
+  ) {
+    sessionStorage.setItem("allProductsReloaded", "true");
+    window.location.reload();
+  }
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const howManyItemsInCart = cart.reduce(
     (total, item) => total + item.quantity,
@@ -211,7 +220,7 @@ const handlePriceFilter = () => {
   const products = Array.from(
     productsContainer.querySelectorAll(".product-item")
   );
-  console.log(products);
+
   applyFilterButton.addEventListener("click", () => {
     const minPrice = parseFloat(minPriceInput.value) || 0;
     const maxPrice = parseFloat(maxPriceInput.value) || Infinity;
@@ -276,5 +285,11 @@ const initFuncAllProducts = () => {
   handleDetectScreenChange();
   HandleMenuButton();
   processingCart();
+
+  let screenWidth = window.innerWidth || document.documentElement.clientWidth;
+  const isTablet = screenWidth <= 768;
+  if (isTablet) {
+    document.body.style.overflowY = "auto";
+  }
 };
 export { AllProducts, initFuncAllProducts };

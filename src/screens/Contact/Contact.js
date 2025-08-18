@@ -150,5 +150,11 @@ const initFuncContact = () => {
   HandleMenuButton();
   handleContactFormSubmit();
   processingCart();
+
+  let screenWidth = window.innerWidth || document.documentElement.clientWidth;
+  const isTablet = screenWidth <= 768;
+  if (isTablet) {
+    document.body.style.overflowY = "auto";
+  }
 };
 export { Contact, initFuncContact };

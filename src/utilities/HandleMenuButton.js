@@ -28,6 +28,9 @@ const HandleMenuButton = () => {
       }
       if (isTablet && !isMobile) {
         menuTablet.style.transform = "translateY(130%)";
+        menuTablet.style.transition = "transform 0.3s ease";
+        overlay.style.display = "block";
+        document.body.style.overflowY = "hidden";
       }
 
       menuTablet.style.transition = "transform 0.3s ease";
