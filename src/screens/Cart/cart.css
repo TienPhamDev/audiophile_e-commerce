@@ -1,0 +1,121 @@
+/* .cart-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+} */
+.cart {
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-right: 1rem;
+}
+.cart-modal {
+  position: absolute;
+  top: 7%;
+  right: 2%;
+  z-index: 12;
+  width: 52rem;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  padding: 4.4rem;
+  border-radius: 0.8rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+/* .checkout-button {
+  width: 50%;
+  padding: 1.2rem;
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  border: none;
+  border-radius: 0.4rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+  cursor: pointer;
+} */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* transparent black */
+  color: var(--color-black);
+}
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-count {
+  outline: none;
+  border: none;
+  width: 0.6rem;
+  display: inline;
+}
+.cart ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.cart ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.cart-item-text-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-grow: 1;
+}
+.cart-item-text-div span:last-child {
+  color: #979797;
+  font-size: 1.6rem;
+}
+.cart-item-text-div span:first-child {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+.total-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+.total-div span:first-child {
+  color: #979797;
+  font-size: 1.8rem;
+}
+.total-div span:last-child {
+  font-size: 2.4rem;
+}
+.cart-item-image {
+  width: 6.4rem;
+  height: 6.4rem;
+}
+.cart-quantity {
+  padding: 0.1rem;
+}
+@media (min-width: 1224px) {
+  .cart-modal {
+    right: 16%;
+  }
+}
+@media (max-width: 431px) {
+  .cart-modal {
+    width: 40rem;
+    right: 3%;
+    top: 8%;
+    padding: 1.4rem;
+  }
+  .cart-item-text-div span:first-child {
+    font-size: 1.4rem;
+  }
+}

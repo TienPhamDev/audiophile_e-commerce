@@ -89,6 +89,7 @@ const processingCart = () => {
     }
   });
   cartButtonElement.addEventListener("click", () => {
+    window.location.href = `${URL}/cart`;
     if (cart.length > 0) {
       const processingCart = cart.reduce((acc, item) => {
         const existingItem = acc.find((i) => i.name === item.name);
@@ -96,22 +97,17 @@ const processingCart = () => {
           existingItem.quantity += item.quantity;
           return acc;
         }
-
         if (!acc.some((i) => i.name === item.name)) {
           acc.push({ ...item });
         }
-
         return acc;
       }, []);
-
       localStorage.setItem("cart", JSON.stringify(processingCart));
-
       // Create cart modal content
       const processingCartItems = JSON.parse(localStorage.getItem("cart"));
       const cartItems = processingCartItems
         .map((item) => {
           const imageSrc = `.${item.image.desktop}`;
-
           return `<li>
               <div class="cart-item-image-div">
                 <img src="${imageSrc}" alt="${item.name}" class="cart-item-image">
@@ -134,7 +130,6 @@ const processingCart = () => {
         (total, item) => total + item.quantity,
         0
       );
-
       // Create cart modal
       const cartContent = `
         <div class="cart-header">
@@ -150,24 +145,18 @@ const processingCart = () => {
       const cartModal = document.createElement("div");
       cartModal.className = "cart-modal";
       cartModal.innerHTML = cartContent;
-
       const cartOverlay = document.createElement("div");
       cartOverlay.className = "cart-overlay";
       cartOverlay.appendChild(cartModal);
-
       const header = document.getElementsByTagName("header")[0];
       header.appendChild(cartOverlay);
-
       const heroSectionText = document.querySelector(".hero-text");
       const isHomePage = document.location.pathname === "/";
       if (isHomePage) {
         heroSectionText.style.zIndex = "0";
       }
-
       document.body.style.overflowY = "hidden";
-
       handleCartItem();
-
       const checkoutButton = document.getElementById("checkout-button");
       checkoutButton.addEventListener("click", () => {
         const currentCart = JSON.parse(localStorage.getItem("cart")) || [];

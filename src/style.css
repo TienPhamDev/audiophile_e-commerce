@@ -256,8 +256,9 @@ input.error::placeholder {
   flex-direction: column;
   /* grid-template-rows: auto 2fr 1fr;
   grid-template-columns: 1fr; */
-  justify-content: center;
-  align-items: stretch;
+  justify-content: stretch;
+
+  height: 100vh;
 }
 /* Style for Home.js -----------------------------------*/
 
@@ -763,6 +764,11 @@ footer p {
     border-bottom-right-radius: 0.8rem;
     border-bottom-left-radius: 0.8rem;
   }
+  .menu-allproducts {
+    position: absolute;
+    top: 80%;
+    left: 20%;
+  }
   .overlay-menu {
     position: fixed;
     bottom: 0;
@@ -1056,24 +1062,21 @@ footer p {
   }
 
   .menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     position: absolute;
     width: 100%;
-    height: 60rem;
+    height: 65rem;
     gap: 1rem;
-    top: -60rem;
+    top: -65rem;
     left: 0;
   }
 
   .menu > li {
     width: 100%;
     height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
     padding: 1rem 0;
   }
   .menu > li:last-child {
@@ -1085,12 +1088,24 @@ footer p {
   }
   .menu-contact {
     width: 100%;
-    position: absolute;
-    bottom: 10%;
-    left: 0;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    position: unset;
+  }
+  .menu-allproducts {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    position: unset;
+  }
+  .menu-a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
   }
   .menu-contact a {
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1232,8 +1247,3 @@ footer p {
     height: 85vh !important;
   }
 } */
-@media (max-width: 431px) {
-  .overlay-menu {
-    height: 93vh !important;
-  }
-}
