@@ -79,6 +79,10 @@ const AllProducts = () => {
       <main>
       <section class="filter">
         <div class="filter-item">
+          <input type="text" id="search" placeholder="Search products...">
+          <button id="search-button" class="button-3">Search</button>
+        </div>
+        <div class="filter-item">
           <label for="category">Sort by category:</label>
           <select id="sort-by">
             <option value="default">Default</option>
@@ -102,7 +106,7 @@ const AllProducts = () => {
                 return `
                 <div class="product-item">
                   <div class="product-info">
-                    <h2>${item.name}</h2>
+                    <h2 id="product-name">${item.name}</h2>
                     <p>${item.description}</p>
                     <p id='price'>$ ${item.price}</p>
                     <a href="${URL}/headphones/${item.slug}" data-link class="button-1">SEE PRODUCT</a>
@@ -119,7 +123,7 @@ const AllProducts = () => {
                   <img src=${item.categoryImage.desktop} alt="${item.name}">
                 </div>
                 <div class="product-info">
-                  <h2>${item.name}</h2>
+                  <h2 id="product-name">${item.name}</h2>
                   <p>${item.description}</p>
                   <p id='price'>$ ${item.price}</p>
                   <a href="${URL}/headphones/${item.slug}" data-link class="button-1">SEE PRODUCT</a>
@@ -177,6 +181,27 @@ const AllProducts = () => {
   `;
 
   return content;
+};
+const handleSearch = () => {
+  const searchInput = document.getElementById("search");
+  const searchButton = document.getElementById("search-button");
+  const productsContainer = document.querySelector(".products");
+  const products = Array.from(
+    productsContainer.querySelectorAll(".product-item")
+  );
+  searchButton.addEventListener("click", () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const filteredProducts = products.filter((product) => {
+      const productName = product
+        .querySelector("#product-name")
+        .textContent.toLowerCase();
+      return productName.includes(searchTerm);
+    });
+    productsContainer.innerHTML = "";
+    filteredProducts.forEach((product) =>
+      productsContainer.appendChild(product)
+    );
+  });
 };
 const handlePriceFilter = () => {
   const minPriceInput = document.getElementById("min-price");
@@ -246,6 +271,7 @@ const sortProductsByCategories = () => {
 };
 const initFuncAllProducts = () => {
   handlePriceFilter();
+  handleSearch();
   sortProductsByCategories();
   handleDetectScreenChange();
   HandleMenuButton();
